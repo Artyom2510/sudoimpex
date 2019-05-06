@@ -1,0 +1,63 @@
+.main
+	position: relative
+	margin: 0
+	padding: 0
+	&__line
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 1
+		display: inline-block
+		margin-left: 16px
+		width: 2px
+		height: 100vh
+		background-color: rgba(255, 255, 255, .1)
+		&_2
+			margin-left: 72px
+		&_3
+			margin-left: 65px
+	&__bg
+		position: relative
+		top: -3px
+		display: block
+		padding-top: 224px
+		width: 100%
+		height: calc(100vh + 3px)
+		background: url("/img/main-bg.png") 50% 50% / cover no-repeat
+
++media(sm)
+	.main
+		&__line
+			&_3
+				margin-left: 44px
+		&__bg
+			padding-top: 154px
+
+.main-bg
+	&__text-center
+		position: relative
+		display: block
+		margin-bottom: 60px
+		margin-left: 56px
+		padding-left: 10px
+		color: #fff
+	&__title
+		margin-bottom: 15px
+		padding-left: 15px
+		color: #fff
+	&__desc
+		position: relative
+		padding-left: 15px
+		color: #fff
+	&__btn-next
+		position: absolute
+		left: 47%
+		bottom: 42px
+		transform: rotate(-90deg) translateY(-50%)
+		&:hover
+			bottom: 32px
+
++media(sm)
+	.main-bg
+		&__btn-next
+			left: 56%

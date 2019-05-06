@@ -1,0 +1,124 @@
+html,
+body
+	overflow-x: hidden
+
+body
+	min-width: 320px
+	position: relative
+	margin: 0
+	padding: 0
+	font-family: "GothaPro"
+	font-size: 14px
+	line-height: 1.64
+	color: $text
+
+section
+	position: relative
+
+/* Шрифты */
+.h1, h1, .h2, h2, .h3, h3, p
+	display: block
+	margin: 0
+	padding: 0
+	font-style: normal
+	font-stretch: normal
+	letter-spacing: normal
+	line-height: 1.64
+
+h1, .h1
+	font-family: "GothamPro-Bold"
+	font-size: 58px
+
++media(xs)
+	h1, .h1
+		font-size: 25px
+
+h2, .h2
+	font-size: 18px
+
++media(xs)
+	h2, .h2
+		font-family: "GothamPro-Bold"
+		font-size: 20px
+
+h3, .h3
+	font-size: 14px
+
+p
+	font-size: 18px
+	&::before
+		content: ''
+		position: absolute
+		width: 2px
+		height: 100%
+		left: 0
+		background-color: #ffffff
+
++media(xs)
+	p
+		font-size: 12px
+
+a
+	display: inline-block
+	font-size: 14px
+	line-height: 24px
+	cursor: pointer
+	outline: none !important
+	color: #fff
+	transition: all .3s ease
+	&:hover
+		color: #fff
+
+
+button
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	margin: 0
+	padding: 0
+	border: none
+	background: transparent
+	cursor: pointer
+	outline: none !important
+	transition: all .3s ease
+
+.btn
+	width: 40px
+	height: 40px
+	border-radius: 50%
+	background-color: #0075FF
+	&:hover
+		background-color: #0069E3
+	&::before,
+	&::after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		width: 20px
+		height: 2px
+		background-color: #fff
+
+.bnt-next
+	display: inline-block
+	min-width: 40px
+	height: 26px
+	padding-left: 22px
+	font-size: 12px
+	text-decoration: none
+	color: #fff
+	&::before
+		content: ''
+		position: absolute
+		bottom: -8px
+		left: 0
+		transform: rotate(180deg)
+		z-index: 1
+		width: 40px
+		height: 26px
+		background: url("/img/icon-svg/arrow.svg") 50% 50% / cover no-repeat
+	&_white
+		&::before
+			background: url("/img/icon-svg/arrow-white.svg") 50% 50% / cover no-repeat
+

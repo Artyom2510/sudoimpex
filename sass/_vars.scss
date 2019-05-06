@@ -1,0 +1,48 @@
+// Общие настройки
+$font-formats: ("eot", "woff", "ttf"); // Доступны в snippets - eot, woff2, woff, ttf, svg
+$url-img: '/img';
+$url-font: '/fonts';
+
+// Переменные цветов
+$ac: #0075ff;
+$greyish-blue: #004a69;
+$text: #2c2c2c;
+$vertical-text: #c0c0c0;
+$light-gray: #eaeaea;
+
+// Настройки Bootstrap 
+$breakpoints: (
+	'xs': 0,
+	'sm': 768px,
+	'md': 1080px,
+	'lg': 1280px
+) !default;
+
+$max-widths: (
+	'xs': 100%,
+	'sm': 720px,
+	'md': 1056px,
+	'lg': 1248px
+) !default;
+
+$conSm: map-get($max-widths, 'sm');
+$conMd: map-get($max-widths, 'md');
+$conLg: map-get($max-widths, 'lg');
+$conXl: map-get($max-widths, 'xl');
+
+// Customization Bootstrap vars from "bootstrap/_variables.scss"
+$grid-gutter-width: 32px;
+$grid-columns: 12;
+
+$grid-breakpoints: (
+	'xs': map-get($breakpoints, 'xs'),
+	'sm': map-get($breakpoints, 'sm'),
+	'md': map-get($breakpoints, 'md'),
+	'lg': map-get($breakpoints, 'lg')
+);
+
+$container-max-widths: (
+	'sm': map-get($max-widths, 'sm'),
+	'md': map-get($max-widths, 'md'),
+	'lg': map-get($max-widths, 'lg')
+);

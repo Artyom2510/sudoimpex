@@ -1,0 +1,40 @@
+.header
+	position: absolute
+	z-index: 1
+	top: 64px
+	width: 100%
+	&__logo
+		display: inline-block
+		height: 48px
+		width: 240px
+		text-decoration: none
+		img
+			width: 100%
+			height: auto
+	&__contacts,
+	&__lang
+		display: flex
+		align-items: center
+		height: 48px
+	&__lang
+		justify-content: flex-end
+		text-align: right
+		a
+			&:first-child
+				margin-right: 3px
+			&.active
+				font-weight: bold
+
++media(xs)
+	.header
+		top: 40px
+		&__logo
+			height: 24px
+			width: 120px
+		&__contacts,
+		&__lang
+			height: 24px
+		&__lang
+			a
+				&.active
+					display: none
