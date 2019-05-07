@@ -1,23 +1,33 @@
 .header
-	position: fixed
+	position: absolute
 	z-index: 1
 	top: 64px
 	left: 0
 	height: auto
 	width: 100%
+	&.translate
+		transform: translateY(100vh)
 	&__logo
 		display: inline-block
 		height: 48px
 		width: 240px
 		text-decoration: none
-		img
+		svg
 			width: 100%
 			height: auto
+			path
+				transition: all .3s ease
+		&.gray
+			path
+				fill: #c4c4c4
 	&__contacts,
 	&__lang
 		display: flex
 		align-items: center
 		height: 48px
+		&.gray
+			a
+				color: $text
 	&__lang
 		justify-content: flex-end
 		text-align: right
@@ -26,14 +36,6 @@
 				margin-right: 3px
 			&.active
 				font-weight: bold
-	&_dark
-		.logo
-			path
-				fill: #c4c4c4
-		.header__contacts,
-		.header__lang
-			a
-				color: $text
 
 +media(xs)
 	.header
