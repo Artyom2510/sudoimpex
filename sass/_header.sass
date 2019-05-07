@@ -1,7 +1,9 @@
 .header
-	position: absolute
+	position: fixed
 	z-index: 1
 	top: 64px
+	left: 0
+	height: auto
 	width: 100%
 	&__logo
 		display: inline-block
@@ -24,6 +26,14 @@
 				margin-right: 3px
 			&.active
 				font-weight: bold
+	&_dark
+		.logo
+			path
+				fill: #c4c4c4
+		.header__contacts,
+		.header__lang
+			a
+				color: $text
 
 +media(xs)
 	.header
@@ -35,6 +45,5 @@
 		&__lang
 			height: 24px
 		&__lang
-			a
-				&.active
-					display: none
+			a.active
+				display: none
