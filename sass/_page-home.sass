@@ -6,7 +6,7 @@
 		position: absolute
 		top: 0
 		left: 0
-		z-index: 1
+		z-index: 3
 		display: inline-block
 		margin-left: 16px
 		width: 2px
@@ -14,14 +14,15 @@
 		background-color: rgba(255, 255, 255, .1)
 		&.translate
 			transform: translateY(100vh)
-			background-color: red
+			background-color: rgba(234, 234, 234, .9)
+			// background-color: red
 		&_2
 			margin-left: 72px
 		&_3
 			margin-left: 65px
 	&__bg
 		position: relative
-		top: -1px
+		top: 0
 		display: block
 		padding-top: 224px
 		width: 100%
@@ -46,27 +47,22 @@
 			&_3
 				margin-left: 10px
 
-.main-bg
-	width: 100%
-	height: 100vh
-	overflow: hidden
-
 .main-bg-footer
 	&__btn-go
 		position: absolute
 		bottom: 42px
-		left: 53px
+		left: 52px
 		transform: rotate(90deg)
 
 +media(sm)
 	.main-bg-footer
 		&__btn-go
-			left: 16px
+			left: 17px
 
 +media(xs)
 	.main-bg-footer
 		&__btn-go
-			// left: 20px
+			left: 20px
 
 .main-bg
 	&__text-center
@@ -102,19 +98,46 @@
 
 .sliders
 	position: relative
-	min-height: 100vh
+	height: 100vh
 	background-color: #fff
 	&__slider
+		z-index: 2
 		padding-top: 152px
 	&__btn-go
 		position: absolute
 		top: 28px
-		left: 53px
+		left: 52px
 		transform: rotate(-90deg)
 	&__wrap
 		position: relative
+		height: 100vh
+	&__bottom-line
+		position: absolute
+		z-index: 2
+		bottom: 42px
+		display: block
+		width: 100%
+		height: 2px
+		// background-color: blue
+		background-color: rgba(234, 234, 234, .9)
+
++media(sm)
+	.sliders
+		&__btn-go
+			left: 27px
+			top: 20px
+
++media(xs)
+	.sliders
+		&__btn-go
+			left: 30px
+			top: 8px
+		&__slider
+			padding-top: 104px
 
 .slider
+	height: 100vh
+	background-color: #fff
 	&__title
 		display: block
 		margin-bottom: 28px
@@ -133,18 +156,23 @@
 	&__annotation
 		width: 400px
 		margin-left: 69px
-		margin-bottom: 140px
 		padding-left: 10px
 		font-family: "GothamPro-Medium"
 		font-size: 14px
+	&__annotation-number
+		position: absolute
+		top: 0
+		left: -14px
+		transform: rotate(-90deg)
+		font-family: "GothamPro-Medium"
+		font-size: 12px
+		line-height: 14px
+		color: rgba(44, 44, 44, .3)
 	&__next,
 	&__prev
 		position: absolute
 		z-index: 2
 		top: 50%
-		width: 40px
-		height: 26px
-		background: url("/img/icon-svg/arrow.svg") 50% 50% / cover no-repeat
 	&__next
 		right: 48px
 		transform: translateY(-50%)
@@ -152,12 +180,20 @@
 		left: 48px
 		transform: translateY(-50%) rotate(180deg)
 	&__dots
+		position: absolute
+		bottom: 42px
+		z-index: 3
 		display: flex
+		width: 100%
+		overflow-x: auto
+		&::-webkit-scrollbar
+			width: 0px
+			height: 0px
 		button
 			position: relative
 			margin-right: 38px
-			margin-bottom: 42px
 			padding-bottom: 15px
+			white-space: nowrap
 			&:last-child
 				margin-right: 0
 			&::after
@@ -187,3 +223,33 @@
 					width: 100%
 			&.active
 				color: $ac
+
++media(sm)
+	.slider
+		&__desc
+			+b4col(_col(10))
+		&__img
+			width: 274px
+			height: 156px
+		&__annotation
+			margin-left: 0
+		&__next,
+		&__prev
+			width: 20px
+			height: 13px
+		&__next
+			right: 10px
+		&__prev
+			left: 10px
+
++media(xs)
+	.slider
+		&__title
+			font-size: 16px
+			line-height: 1.64
+		&__desc
+			+b4col(100%)
+		&__next
+			right: 2px
+		&__prev
+			left: 2px

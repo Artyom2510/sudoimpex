@@ -1,6 +1,6 @@
 .header
 	position: absolute
-	z-index: 1
+	z-index: 3
 	top: 64px
 	left: 0
 	height: auto
@@ -18,16 +18,35 @@
 			path
 				transition: all .3s ease
 		&.gray
-			path
-				fill: #c4c4c4
+			svg
+				path
+					fill: #c4c4c4
 	&__contacts,
 	&__lang
 		display: flex
 		align-items: center
 		height: 48px
+		a
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				bottom: 2px
+				left: 0
+				display: inline-block
+				width: 0
+				height: 1px
+				background-color: rgba(255, 255, 255, .3)
+				transition: all .3s ease
+			&:hover
+				text-decoration: none
+				&::before
+					width: 100%
 		&.gray
 			a
 				color: $text
+				&::before
+					background-color: rgba(44, 44, 44, .3)
 	&__lang
 		justify-content: flex-end
 		text-align: right

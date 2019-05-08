@@ -419,7 +419,7 @@ html {
 .col-lg-auto {
 	position: relative;
 	width: 100%;
-	min-height: 1px;
+	min-height: 0px;
 	padding-right: 16px;
 	padding-left: 16px;
 }
