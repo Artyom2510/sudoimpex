@@ -9,10 +9,14 @@ body
 	font-size: 14px
 	line-height: 1.64
 	color: $text
-	overflow-x: hidden
+	overflow: hidden
 	transition: transform .3s ease
 	&.translate
 		transform: translateY(-100%)
+
++media(xs)
+	body
+		overflow-y: visible
 
 section
 	position: relative

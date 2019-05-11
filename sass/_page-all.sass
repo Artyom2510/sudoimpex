@@ -2,6 +2,7 @@
 	position: relative
 	margin: 0
 	padding: 0
+	min-height: 100vh
 	&__line
 		position: absolute
 		top: 0
@@ -138,6 +139,10 @@
 			top: 8px
 		&__slider
 			padding-top: 104px
+		&__wrap
+			min-height: 100vh
+			height: auto
+			padding-bottom: 92px
 
 .slider
 	height: 100vh
@@ -181,11 +186,14 @@
 	&__prev
 		left: 48px
 		transform: translateY(-50%) rotate(180deg)
-	&__dots
+	&__dots-footer
 		position: absolute
 		bottom: 42px
 		z-index: 3
+		width: 100%
+	&__dots
 		display: flex
+		justify-content: space-between
 		width: 100%
 		overflow-x: auto
 		&::-webkit-scrollbar
@@ -243,18 +251,20 @@
 			right: 10px
 		&__prev
 			left: 10px
-		&__dots
+		&__dots-footer
 			bottom: 20px
-			button:last-child
-				padding-right: 40px
-				&::after
-					left: calc(50% - 20px)
-				&:hover
-					&::before
-						width: calc(100% - 40px)
+			// button:last-child
+			// 	padding-right: 40px
+			// 	&::after
+			// 		left: calc(50% - 20px)
+			// 	&:hover
+			// 		&::before
+			// 			width: calc(100% - 40px)
 
 +media(xs)
 	.slider
+		min-height: 100vh
+		height: 100%
 		&__title
 			min-height: 78px
 			margin-bottom: 16px
@@ -263,6 +273,7 @@
 		&__desc,
 		&__annotation
 			+b4col(100%)
+			width: 100%
 		&__img
 			width: 100%
 			height: auto
@@ -270,19 +281,20 @@
 			right: 2px
 		&__prev
 			left: 2px
-		&__dots
+		&__dots-footer
 			bottom: 18px
-			button:last-child
-				padding-left: 16px
-				&::after
-					left: calc(50% - 8px)
-				&:hover
-					&::before
-						width: calc(100% - 16px)
+			// button:last-child
+			// 	padding-left: 16px
+			// 	&::after
+			// 		left: calc(50% - 8px)
+				// &:hover
+				// 	&::before
+				// 		width: calc(100% - 16px)
 
 .main-contacts
 	min-height: 100vh
 	height: 100%
+	overflow-y: visible
 
 +media(xs)
 	.main-contacts

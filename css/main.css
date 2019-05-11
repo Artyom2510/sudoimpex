@@ -35,7 +35,7 @@ body {
 	font-size: 14px;
 	line-height: 1.64;
 	color: #2c2c2c;
-	overflow-x: hidden;
+	overflow: hidden;
 	-webkit-transition: -webkit-transform .3s ease;
 	transition: -webkit-transform .3s ease;
 	-o-transition: transform .3s ease;
@@ -47,6 +47,12 @@ body.translate {
 	-webkit-transform: translateY(-100%);
 	-ms-transform: translateY(-100%);
 	transform: translateY(-100%);
+}
+
+@media (max-width: 767.98px) {
+	body {
+		overflow-y: visible;
+	}
 }
 
 section {
@@ -451,6 +457,7 @@ button {
 	position: relative;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
 }
 
 .main__line {
@@ -634,6 +641,12 @@ button {
 	.sliders__slider {
 		padding-top: 104px;
 	}
+
+	.sliders__wrap {
+		min-height: 100vh;
+		height: auto;
+		padding-bottom: 92px;
+	}
 }
 
 .slider {
@@ -705,14 +718,22 @@ button {
 	transform: translateY(-50%) rotate(180deg);
 }
 
-.slider__dots {
+.slider__dots-footer {
 	position: absolute;
 	bottom: 42px;
 	z-index: 3;
+	width: 100%;
+}
+
+.slider__dots {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 	width: 100%;
 	overflow-x: auto;
 }
@@ -803,26 +824,17 @@ button {
 		left: 10px;
 	}
 
-	.slider__dots {
+	.slider__dots-footer {
 		bottom: 20px;
-	}
-
-	.slider__dots button:last-child {
-		padding-right: 40px;
-	}
-
-	.slider__dots button:last-child::after {
-		left: -webkit-calc(50% - 20px);
-		left: calc(50% - 20px);
-	}
-
-	.slider__dots button:last-child:hover::before {
-		width: -webkit-calc(100% - 40px);
-		width: calc(100% - 40px);
 	}
 }
 
 @media (max-width: 767.98px) {
+	.slider {
+		min-height: 100vh;
+		height: 100%;
+	}
+
 	.slider__title {
 		min-height: 78px;
 		margin-bottom: 16px;
@@ -836,6 +848,7 @@ button {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		max-width: 100%;
+		width: 100%;
 	}
 
 	.slider__img {
@@ -851,28 +864,15 @@ button {
 		left: 2px;
 	}
 
-	.slider__dots {
+	.slider__dots-footer {
 		bottom: 18px;
-	}
-
-	.slider__dots button:last-child {
-		padding-left: 16px;
-	}
-
-	.slider__dots button:last-child::after {
-		left: -webkit-calc(50% - 8px);
-		left: calc(50% - 8px);
-	}
-
-	.slider__dots button:last-child:hover::before {
-		width: -webkit-calc(100% - 16px);
-		width: calc(100% - 16px);
 	}
 }
 
 .main-contacts {
 	min-height: 100vh;
 	height: 100%;
+	overflow-y: visible;
 }
 
 @media (max-width: 767.98px) {
