@@ -9,7 +9,7 @@ body
 	font-size: 14px
 	line-height: 1.64
 	color: $text
-	overflow: hidden
+	overflow-x: hidden
 	transition: transform .3s ease
 	&.translate
 		transform: translateY(-100%)
@@ -149,6 +149,7 @@ button
 .b-content
 	p
 		position: relative
+		padding-left: 10px
 		font-size: 14px
 		&::before
 			content: ''
@@ -157,3 +158,5 @@ button
 			width: 2px
 			height: 100%
 			background-color: #2c2c2c
+		strong
+			font-family: "GothamPro-Bold"

@@ -21,6 +21,10 @@
 			svg
 				path
 					fill: #c4c4c4
+			&:hover
+				svg
+					path
+						fill: $ac
 	&__contacts,
 	&__lang
 		display: flex
@@ -45,8 +49,10 @@
 		&.gray
 			a
 				color: $text
+				&:hover
+					color: $ac
 				&::before
-					background-color: rgba(44, 44, 44, .3)
+					background-color: rgba(0, 117, 255, .3)
 	&__lang
 		justify-content: flex-end
 		text-align: right

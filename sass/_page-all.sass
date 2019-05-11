@@ -28,6 +28,8 @@
 		width: 100%
 		height: 100vh
 		background: url("/img/main-bg.png") 50% 50% / cover no-repeat
+	&__contacts
+		margin-top: 150px
 
 +media(sm)
 	.main
@@ -45,7 +47,9 @@
 			&_2
 				margin-left: 12px
 			&_3
-				margin-left: 10px
+				margin-left: 36px
+		&__contacts
+			margin-top: 104px
 
 .main-bg-footer
 	&__btn-go
@@ -147,7 +151,6 @@
 	&__desc
 		+b4col(_col(6))
 		margin-bottom: 14px
-		padding-left: 10px
 		font-size: 14px
 	&__img
 		width: 544px
@@ -156,7 +159,6 @@
 	&__annotation
 		width: 400px
 		margin-left: 69px
-		padding-left: 10px
 		font-family: "GothamPro-Medium"
 		font-size: 14px
 	&__annotation-number
@@ -228,9 +230,9 @@
 	.slider
 		&__desc
 			+b4col(_col(10))
+			margin-bottom: 40px
 		&__img
-			width: 274px
-			height: 156px
+			margin-bottom: 40px
 		&__annotation
 			margin-left: 0
 		&__next,
@@ -241,15 +243,143 @@
 			right: 10px
 		&__prev
 			left: 10px
+		&__dots
+			bottom: 20px
+			button:last-child
+				padding-right: 40px
+				&::after
+					left: calc(50% - 20px)
+				&:hover
+					&::before
+						width: calc(100% - 40px)
 
 +media(xs)
 	.slider
 		&__title
+			min-height: 78px
+			margin-bottom: 16px
 			font-size: 16px
 			line-height: 1.64
-		&__desc
+		&__desc,
+		&__annotation
 			+b4col(100%)
+		&__img
+			width: 100%
+			height: auto
 		&__next
 			right: 2px
 		&__prev
 			left: 2px
+		&__dots
+			bottom: 18px
+			button:last-child
+				padding-left: 16px
+				&::after
+					left: calc(50% - 8px)
+				&:hover
+					&::before
+						width: calc(100% - 16px)
+
+.main-contacts
+	min-height: 100vh
+	height: 100%
+
++media(xs)
+	.main-contacts
+		height: auto
+		min-height: 100%
+
+.contacts-info
+	position: relative
+	display: block
+	padding-left: 42px
+	font-size: 14px
+	&::before,
+	&::after
+		content: ''
+		position: absolute
+		display: block
+	&::before
+		left: 0
+		width: 2px
+		height: 100%
+		background-color: $text
+	&::after
+		top: 0
+		left: 12px
+		width: 20px
+		height: 20px
+
+.contacts
+	&__title
+		display: block
+		margin-bottom: 28px
+		font-family: "GothamPro-Bold"
+		font-size: 28px
+		line-height: 32px
+	&__desc
+		margin-bottom: 48px
+		strong
+			display: block
+			margin-top: 22px
+	&__location
+		margin-bottom: 32px
+		&::after
+			background: url("/img/icon-svg/mark.svg") 50% 50% no-repeat
+	&__email
+		margin-bottom: 32px
+		&::after
+			background: url("/img/icon-svg/message.svg") 50% 50% no-repeat
+	&__phone
+		margin-bottom: 78px
+		span
+			display: block
+		&::after
+			top: 50%
+			transform: translateY(-50%)
+			background: url("/img/icon-svg/phone.svg") 50% 50% no-repeat
+	&__bottom-desc
+		font-family: "GothamPro-Medium"
+	&__map
+		position: absolute
+		right: 0
+		top: -56px
+		display: block
+		height: 344px
+		width: 100%
+
++media(sm)
+	.contacts
+		&__title
+			min-height: 64px
+			margin-bottom: 18px
+		&__desc
+			margin-bottom: 18px
+		&__phone
+			margin-bottom: 174px
+		&__map
+			height: 220px
+			top: 20px
+
++media(sm)
+	.contacts
+		&__title
+			margin-bottom: 16px
+			font-size: 16px
+			min-height: 78px
+		&__desc
+			margin-bottom: 16px
+			strong
+				margin-top: 16px
+		&__location,
+		&__email
+			margin-bottom: 24px
+		&__phone
+			margin-bottom: 32px
+		&__map
+			position: relative
+			top: 0
+			height: 134px
+			margin-bottom: 24px
+		&__bottom-desc
+			margin-bottom: 120px
