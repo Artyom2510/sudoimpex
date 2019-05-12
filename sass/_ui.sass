@@ -10,13 +10,13 @@ body
 	line-height: 1.64
 	color: $text
 	overflow: hidden
-	transition: transform .3s ease
+	transition: all .5s ease
 	&.translate
 		transform: translateY(-100%)
 
 +media(xs)
-	body
-		overflow-y: visible
+	body.translate
+		overflow-y: scroll
 
 section
 	position: relative
@@ -75,6 +75,13 @@ a
 	&:hover
 		color: #fff
 
+ol, li
+	padding: 0
+	margin: 0
+
+li
+	list-style-type: none
+
 button
 	display: inline-flex
 	align-items: center
@@ -88,10 +95,12 @@ button
 	transition: all .3s ease
 
 .btn
+	position: relative
+	display: block
 	width: 40px
 	height: 40px
 	border-radius: 50%
-	background-color: #0075FF
+	background-color: $ac
 	&:hover
 		background-color: #0069E3
 	&::before,
@@ -104,6 +113,43 @@ button
 		width: 20px
 		height: 2px
 		background-color: #fff
+		transition: all .3s ease
+	&::after
+		transform: translate(-50%, -50%) rotate(90deg)
+	&.open
+		&::before
+			animation: o-transformBefore .3s ease-in-out forwards
+		&::after
+			animation: o-transformAfter .3s ease-in-out forwards
+	&.close
+		&::before
+			animation: c-transformBefore .3s ease-in-out forwards
+		&::after
+			animation: c-transformAfter .3s ease-in-out forwards
+
+@keyframes o-transformAfter
+	0%
+		transform: translate(-50%, -50%) rotate(0deg)
+	100%
+		transform: translate(-50%, -50%) rotate(45deg)
+
+@keyframes o-transformBefore
+	0%
+		transform: translate(-50%, -50%) rotate(0deg)
+	100%
+		transform: translate(-50%, -50%) rotate(-45deg)
+
+@keyframes c-transformAfter
+	0%
+		transform: translate(-50%, -50%) rotate(0deg) scale(.1)
+	100%
+		transform: translate(-50%, -50%) rotate(90deg) scale(1)
+
+@keyframes c-transformBefore
+	0%
+		transform: translate(-50%, -50%) rotate(0deg) scale(.1)
+	100%
+		transform: translate(-50%, -50%) rotate(0deg) scale(1)
 
 .btn-go
 	z-index: 3

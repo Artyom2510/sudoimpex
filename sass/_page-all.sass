@@ -2,12 +2,12 @@
 	position: relative
 	margin: 0
 	padding: 0
-	min-height: 100vh
+	height: 100vh
 	&__line
 		position: absolute
 		top: 0
 		left: 0
-		z-index: 3
+		z-index: 1
 		display: inline-block
 		margin-left: 16px
 		width: 2px
@@ -49,24 +49,28 @@
 				margin-left: 12px
 			&_3
 				margin-left: 36px
+		&__bg
+			padding-top: 166px
 		&__contacts
 			margin-top: 104px
 
 .main-bg-footer
 	&__btn-go
 		position: absolute
-		bottom: 42px
+		bottom: 28px
 		left: 52px
 		transform: rotate(90deg)
 
 +media(sm)
 	.main-bg-footer
 		&__btn-go
+			bottom: 32px
 			left: 17px
 
 +media(xs)
 	.main-bg-footer
 		&__btn-go
+			bottom: 20px
 			left: 20px
 
 .main-bg
@@ -134,6 +138,7 @@
 
 +media(xs)
 	.sliders
+		height: 100%
 		&__btn-go
 			left: 30px
 			top: 8px
@@ -146,7 +151,9 @@
 
 .slider
 	height: 100vh
-	background-color: #fff
+	background-color: transparent
+	&__item
+		position: relative
 	&__title
 		display: block
 		margin-bottom: 28px
@@ -157,10 +164,27 @@
 		+b4col(_col(6))
 		margin-bottom: 14px
 		font-size: 14px
+	&__bottom
+		display: flex
+		justify-content: space-between
+		width: 100%
+	&__small-desc
+		+b4col(_col(4))
+		font-family: "GothamPro-Medium"
 	&__img
 		width: 544px
 		height: 310px
 		margin: 0 auto 8px
+	&__agree
+		width: 230px
+		font-family: "GothamPro-Black"
+	&__popup-btn
+		margin-top: 8px
+	&__popup
+		position: absolute
+		z-index: 4
+		bottom: 0
+		left: 0
 	&__annotation
 		width: 400px
 		margin-left: 69px
@@ -241,8 +265,21 @@
 			margin-bottom: 40px
 		&__img
 			margin-bottom: 40px
+			&_second
+				margin-bottom: 24px
+				width: 360px
+				height: 172px
+		&__bottom
+			flex-direction: column
+		&__small-desc
+			+b4col(_col(7))
+		&__agree
+			align-self: flex-end
+			width: 310px
 		&__annotation
 			margin-left: 0
+		&__popup
+			bottom: 50px
 		&__next,
 		&__prev
 			width: 20px
@@ -253,13 +290,6 @@
 			left: 10px
 		&__dots-footer
 			bottom: 20px
-			// button:last-child
-			// 	padding-right: 40px
-			// 	&::after
-			// 		left: calc(50% - 20px)
-			// 	&:hover
-			// 		&::before
-			// 			width: calc(100% - 40px)
 
 +media(xs)
 	.slider
@@ -271,12 +301,20 @@
 			font-size: 16px
 			line-height: 1.64
 		&__desc,
-		&__annotation
+		&__annotation,
+		&__small-desc
 			+b4col(100%)
 			width: 100%
 		&__img
 			width: 100%
 			height: auto
+			&_second
+				width: 100%
+				margin-bottom: 14px
+		&__small-desc
+			margin-bottom: 16px
+		&__agree
+			width: 100%
 		&__next
 			right: 2px
 		&__prev
@@ -395,3 +433,77 @@
 			margin-bottom: 24px
 		&__bottom-desc
 			margin-bottom: 120px
+
+.popup
+	display: none
+	opacity: 0
+	width: calc(100% - 230px)
+	height: 100%
+	max-height: calc(100vh - 192px)
+	background-color: #ffffff
+	box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
+	transition: all .3s ease
+	&.display
+		display: block
+	&.visible
+		opacity: 1
+	&__list
+		display: flex
+		flex-wrap: wrap
+		width: 100%
+		height: 100%
+		padding: 16px 16px 0
+		overflow-y: scroll
+		counter-reset: list
+	&__item
+		position: relative
+		display: inline-block
+		margin-bottom: 8px
+		width: calc(50% - 4px)
+		padding-left: 48px
+		&:last-child,
+		&:nth-child(odd):nth-last-child(2)
+			margin-bottom: 0
+		&:nth-child(odd)
+			margin-right: 8px
+		&::before
+				content: counter(list) ''
+				counter-increment: list
+				position: absolute
+				left: 0
+				display: inline-flex
+				align-items: center
+				justify-content: center
+				width: 38px
+				height: 32px
+				color: #c4c4c4
+				font-family: "GothamPro-Bold"
+				font-size: 30px
+				line-height: 1
+		span
+			display: block
+			margin-bottom: 16px
+			font-family: "GothamPro-Bold"
+			font-size: 14px
+			line-height: 32px
+
++media(sm)
+	.popup
+		width: 100%
+
++media(xs)
+	.popup
+		max-height: 420px
+		&__list
+			flex-wrap: wrap
+		&__item
+			margin-bottom: 24px
+			width: 100%
+			padding-left: 40px
+			&:nth-child(odd)
+				margin-right: 0
+			&:nth-child(odd):nth-last-child(2)
+				margin-bottom: 24px
+			span
+				margin-bottom: 12px
+				font-size: 12px
