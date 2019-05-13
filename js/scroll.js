@@ -3,7 +3,7 @@ $(window).on('wheel', function (e) {
 	var translateGroup = $('body, .header, .main__line');
 	//Scroll
 	// var delta = e.originalEvent.wheelDelta || e.originalEvent.deltaY || e.originalEvent.detail;
-	if( $(window).width() > 1366 ) {
+	if( $(window).width() > 767 ) {
 		if( e.originalEvent.wheelDelta < 0 || e.originalEvent.deltaY > 0 ) {
 			if( !headerGroup.hasClass('translate') ) {
 				translateGroup.addClass('translate');

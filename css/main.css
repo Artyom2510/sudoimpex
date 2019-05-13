@@ -597,10 +597,9 @@ button {
 .main__line {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 16px;
 	z-index: 1;
 	display: inline-block;
-	margin-left: 16px;
 	width: 2px;
 	height: 100vh;
 	background-color: rgba(255, 255, 255, 0.1);
@@ -611,14 +610,6 @@ button {
 	-ms-transform: translateY(100vh);
 	transform: translateY(100vh);
 	background-color: rgba(234, 234, 234, 0.9);
-}
-
-.main__line_2 {
-	margin-left: 72px;
-}
-
-.main__line_3 {
-	margin-left: 65px;
 }
 
 .main__bg {
@@ -636,28 +627,12 @@ button {
 }
 
 @media (max-width: 1079.98px) {
-	.main__line_2 {
-		margin-left: 36px;
-	}
-
-	.main__line_3 {
-		margin-left: 44px;
-	}
-
 	.main__bg {
 		padding-top: 154px;
 	}
 }
 
 @media (max-width: 767.98px) {
-	.main__line_2 {
-		margin-left: 12px;
-	}
-
-	.main__line_3 {
-		margin-left: 36px;
-	}
-
 	.main__bg {
 		padding-top: 166px;
 	}
@@ -670,10 +645,10 @@ button {
 .main-bg-footer__btn-go {
 	position: absolute;
 	bottom: 28px;
-	left: 52px;
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
+	left: 0px;
+	-webkit-transform: translateX(-4px) rotate(90deg);
+	-ms-transform: translateX(-4px) rotate(90deg);
+	transform: translateX(-4px) rotate(90deg);
 }
 
 @media (max-width: 1079.98px) {
@@ -694,7 +669,6 @@ button {
 	position: relative;
 	display: block;
 	margin-bottom: 60px;
-	margin-left: 56px;
 	padding-left: 10px;
 	color: #fff;
 }
@@ -1166,7 +1140,15 @@ button {
 }
 
 .contacts__email {
+	display: inline-block;
 	margin-bottom: 32px;
+	color: #2c2c2c;
+	text-decoration: none;
+}
+
+.contacts__email:hover {
+	color: #0075ff;
+	text-decoration: none;
 }
 
 .contacts__email::after {
@@ -1265,12 +1247,14 @@ button {
 	height: 100%;
 	max-height: -webkit-calc(100vh - 192px);
 	max-height: calc(100vh - 192px);
-	background-color: #ffffff;
-	-webkit-box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
-	box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
+	padding: 16px 16px 8px;
 	-webkit-transition: all .3s ease;
 	-o-transition: all .3s ease;
 	transition: all .3s ease;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
+	overflow-y: scroll;
 }
 
 .popup.display {
@@ -1291,8 +1275,7 @@ button {
 	flex-wrap: wrap;
 	width: 100%;
 	height: 100%;
-	padding: 16px 16px 0;
-	overflow-y: scroll;
+	padding-bottom: 8px;
 	counter-reset: list;
 }
 

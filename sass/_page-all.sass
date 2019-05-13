@@ -6,21 +6,16 @@
 	&__line
 		position: absolute
 		top: 0
-		left: 0
+		left: 16px
 		z-index: 1
 		display: inline-block
-		margin-left: 16px
 		width: 2px
 		height: 100vh
 		background-color: rgba(255, 255, 255, .1)
+			// background-color: red
 		&.translate
 			transform: translateY(100vh)
 			background-color: rgba(234, 234, 234, .9)
-			// background-color: red
-		&_2
-			margin-left: 72px
-		&_3
-			margin-left: 65px
 	&__bg
 		position: relative
 		top: 0
@@ -34,21 +29,11 @@
 
 +media(sm)
 	.main
-		&__line
-			&_2
-				margin-left: 36px
-			&_3
-				margin-left: 44px
 		&__bg
 			padding-top: 154px
 
 +media(xs)
 	.main
-		&__line
-			&_2
-				margin-left: 12px
-			&_3
-				margin-left: 36px
 		&__bg
 			padding-top: 166px
 		&__contacts
@@ -58,8 +43,8 @@
 	&__btn-go
 		position: absolute
 		bottom: 28px
-		left: 52px
-		transform: rotate(90deg)
+		left: 0px
+		transform: translateX(-4px) rotate(90deg)
 
 +media(sm)
 	.main-bg-footer
@@ -78,7 +63,6 @@
 		position: relative
 		display: block
 		margin-bottom: 60px
-		margin-left: 56px
 		padding-left: 10px
 		color: #fff
 	&__title
@@ -377,7 +361,13 @@
 		&::after
 			background: url("/img/icon-svg/mark.svg") 50% 50% no-repeat
 	&__email
+		display: inline-block
 		margin-bottom: 32px
+		color: $text
+		text-decoration: none
+		&:hover
+			color: $ac
+			text-decoration: none
 		&::after
 			background: url("/img/icon-svg/message.svg") 50% 50% no-repeat
 	&__phone
@@ -440,9 +430,11 @@
 	width: calc(100% - 230px)
 	height: 100%
 	max-height: calc(100vh - 192px)
+	padding: 16px 16px 8px
+	transition: all .3s ease
 	background-color: #ffffff
 	box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
-	transition: all .3s ease
+	overflow-y: scroll
 	&.display
 		display: block
 	&.visible
@@ -452,8 +444,7 @@
 		flex-wrap: wrap
 		width: 100%
 		height: 100%
-		padding: 16px 16px 0
-		overflow-y: scroll
+		padding-bottom: 8px
 		counter-reset: list
 	&__item
 		position: relative
