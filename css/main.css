@@ -602,14 +602,14 @@ button {
 	display: inline-block;
 	width: 2px;
 	height: 100vh;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: red;
 }
 
 .main__line.translate {
 	-webkit-transform: translateY(100vh);
 	-ms-transform: translateY(100vh);
 	transform: translateY(100vh);
-	background-color: rgba(234, 234, 234, 0.9);
+	background-color: red;
 }
 
 .main__bg {
@@ -627,6 +627,11 @@ button {
 }
 
 @media (max-width: 1079.98px) {
+	.main__line_last {
+		left: auto;
+		right: 16px;
+	}
+
 	.main__bg {
 		padding-top: 154px;
 	}
@@ -654,14 +659,12 @@ button {
 @media (max-width: 1079.98px) {
 	.main-bg-footer__btn-go {
 		bottom: 32px;
-		left: 17px;
 	}
 }
 
 @media (max-width: 767.98px) {
 	.main-bg-footer__btn-go {
 		bottom: 20px;
-		left: 20px;
 	}
 }
 
@@ -692,18 +695,6 @@ button {
 	width: 100%;
 }
 
-@media (max-width: 1079.98px) {
-	.main-bg__text-center {
-		margin-left: 20px;
-	}
-}
-
-@media (max-width: 767.98px) {
-	.main-bg__text-center {
-		margin-left: 23px;
-	}
-}
-
 .sliders {
 	position: relative;
 	height: 100vh;
@@ -718,10 +709,10 @@ button {
 .sliders__btn-go {
 	position: absolute;
 	top: 28px;
-	left: 52px;
-	-webkit-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	transform: rotate(-90deg);
+	left: 0px;
+	-webkit-transform: translateX(-4px) rotate(-90deg);
+	-ms-transform: translateX(-4px) rotate(-90deg);
+	transform: translateX(-4px) rotate(-90deg);
 }
 
 .sliders__wrap {
@@ -736,24 +727,23 @@ button {
 	display: block;
 	width: 100%;
 	height: 2px;
-	background-color: rgba(234, 234, 234, 0.9);
+	background-color: blue;
 }
 
 @media (max-width: 1079.98px) {
 	.sliders__btn-go {
-		left: 27px;
+		left: 10px;
 		top: 20px;
+	}
+
+	.sliders__bottom-line {
+		bottom: 18px;
 	}
 }
 
 @media (max-width: 767.98px) {
 	.sliders {
 		height: 100%;
-	}
-
-	.sliders__btn-go {
-		left: 30px;
-		top: 8px;
 	}
 
 	.sliders__slider {
@@ -778,7 +768,7 @@ button {
 
 .slider__title {
 	display: block;
-	margin-bottom: 28px;
+	margin-bottom: 24px;
 	font-family: "GothamPro-Bold";
 	font-size: 28px;
 	line-height: 32px;
@@ -790,8 +780,18 @@ button {
 	-ms-flex: 0 0 50%;
 	flex: 0 0 50%;
 	max-width: 50%;
-	margin-bottom: 14px;
+	margin-bottom: 40px;
 	font-size: 14px;
+}
+
+.slider__img {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 50%;
+	-ms-flex: 0 0 50%;
+	flex: 0 0 50%;
+	max-width: 50%;
+	height: 264px;
+	margin: 0 auto;
 }
 
 .slider__bottom {
@@ -815,12 +815,6 @@ button {
 	font-family: "GothamPro-Medium";
 }
 
-.slider__img {
-	width: 544px;
-	height: 310px;
-	margin: 0 auto 8px;
-}
-
 .slider__agree {
 	width: 230px;
 	font-family: "GothamPro-Black";
@@ -838,22 +832,23 @@ button {
 }
 
 .slider__annotation {
-	width: 400px;
-	margin-left: 69px;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 41.66667%;
+	-ms-flex: 0 0 41.66667%;
+	flex: 0 0 41.66667%;
+	max-width: 41.66667%;
 	font-family: "GothamPro-Medium";
 	font-size: 14px;
 }
 
-.slider__annotation-number {
+.slider__annotation::after {
+	content: '01';
 	position: absolute;
-	top: 0;
-	left: -14px;
-	-webkit-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	transform: rotate(-90deg);
+	top: -24px;
+	left: 0;
 	font-family: "GothamPro-Medium";
 	font-size: 12px;
-	line-height: 14px;
+	line-height: 24px;
 	color: rgba(44, 44, 44, 0.3);
 }
 
@@ -953,13 +948,17 @@ button {
 }
 
 @media (max-width: 1079.98px) {
+	.slider__title {
+		margin-bottom: 52px;
+	}
+
 	.slider__desc {
 		-webkit-box-flex: 0;
 		-webkit-flex: 0 0 83.33333%;
 		-ms-flex: 0 0 83.33333%;
 		flex: 0 0 83.33333%;
 		max-width: 83.33333%;
-		margin-bottom: 40px;
+		margin-bottom: 24px;
 	}
 
 	.slider__img {
@@ -996,7 +995,11 @@ button {
 	}
 
 	.slider__annotation {
-		margin-left: 0;
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 58.33333%;
+		-ms-flex: 0 0 58.33333%;
+		flex: 0 0 58.33333%;
+		max-width: 58.33333%;
 	}
 
 	.slider__popup {
@@ -1248,12 +1251,12 @@ button {
 	max-height: -webkit-calc(100vh - 192px);
 	max-height: calc(100vh - 192px);
 	padding: 16px 16px 8px;
-	-webkit-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	transition: all .3s ease;
 	background-color: #ffffff;
 	-webkit-box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
 	box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
+	-webkit-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
 	overflow-y: scroll;
 }
 
