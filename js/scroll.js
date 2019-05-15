@@ -4,6 +4,10 @@ $(window).on('wheel', function (e) {
 	//Scroll
 	// var delta = e.originalEvent.wheelDelta || e.originalEvent.deltaY || e.originalEvent.detail;
 	if( $(window).width() > 767 ) {
+		if( e.originalEvent.wheelDelta > 0 || e.originalEvent.deltaY < 0 ) {
+			$('.js-tgl-popup').addClass('close');
+			$('.slider__popup').removeClass('visible display');
+		}
 		if( e.originalEvent.wheelDelta < 0 || e.originalEvent.deltaY > 0 ) {
 			if( !headerGroup.hasClass('translate') ) {
 				translateGroup.addClass('translate');
