@@ -2,7 +2,6 @@
 	position: relative
 	margin: 0
 	padding: 0
-	height: 100vh
 	&__line
 		position: absolute
 		top: 0
@@ -17,7 +16,6 @@
 			left: -8px
 		&.translate
 			transform: translateY(100vh)
-			min-height: 100vh
 			height: 100%
 			// background-color: rgba(234, 234, 234, .9)
 			background-color: red
@@ -99,7 +97,6 @@
 // 			margin-left: 23px
 
 .sliders
-	position: relative
 	height: 100vh
 	background-color: #fff
 	&__slider
@@ -112,7 +109,7 @@
 		transform: translateX(-4px) rotate(-90deg)
 	&__wrap
 		position: relative
-		height: 100vh
+		padding-bottom: 92px
 	&__bottom-line
 		position: absolute
 		z-index: 2
@@ -125,6 +122,7 @@
 
 +media(sm)
 	.sliders
+		height: 100%
 		&__btn-go
 			left: 10px
 			top: 20px
@@ -133,16 +131,15 @@
 
 +media(xs)
 	.sliders
-		height: 100%
 		// &__btn-go
 		// 	left: 30px
 		// 	top: 8px
 		&__slider
 			padding-top: 104px
 		&__wrap
-			min-height: 100vh
-			height: auto
-			padding-bottom: 92px
+			// min-height: 100vh
+			// height: auto
+			// padding-bottom: 92px
 
 .slider
 	height: 100vh
@@ -165,12 +162,15 @@
 		+b4col(_col(6))
 		height: 264px
 		margin: 0
+		order: 1
 	&__middle
 		display: flex
 		justify-content: flex-end
 		align-items: flex-start
+		flex-wrap: wrap
 	&__annotation
 		+b4col(_col(5))
+		order: 3
 		font-family: "GothamPro-Medium"
 		font-size: 14px
 		span
@@ -186,13 +186,15 @@
 			margin-left: 14px
 		&_3
 			+b4col(_col(3))
-	&__bottom
-		+b4col(100%)
-		display: flex
-		justify-content: space-between
+			order: 2
+	// &__bottom
+	// 	+b4col(100%)
+	// 	display: flex
+	// 	justify-content: space-between
 	&__agree
 		+b4col(_col(3))
 		font-family: "GothamPro-Black"
+		order: 4
 	&__popup-btn
 		margin-top: 8px
 	&__popup
@@ -266,16 +268,22 @@
 		&__desc
 			+b4col(_col(10))
 			margin-bottom: 24px
-		&__img
-			margin-bottom: 40px
-		&__bottom
+		&__middle
 			flex-direction: column
+		&__img
+			align-self: center
 		&__agree
 			+b4col(_col(6))
 			max-width: 328px
 			align-self: flex-end
 		&__annotation
-			+b4col(_col(7))
+			+b4col(_col(6))
+			margin-bottom: 24px
+			&:last-child
+				margin-bottom: 0
+			&_2
+				margin-left: 0
+			&_3
 		&__popup
 			bottom: 50px
 		&__next,
@@ -305,8 +313,9 @@
 			width: 100%
 			height: auto
 		&__agree
-			width: 100%
-			margin-top: 16px
+			+b4col(100%)
+			margin-top: 0
+			align-self: flex-start
 		&__next
 			right: 2px
 		&__prev
@@ -439,7 +448,7 @@
 	height: 100%
 	transition: all .3s ease
 	&_2
-		height: 400px
+		height: auto
 	&.display
 		display: flex
 		align-items: flex-end
@@ -451,7 +460,7 @@
 		width: 100%
 		height: 100%
 		padding: 16px
-		background-color: red
+		background-color: #fff
 		box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
 		counter-reset: list
 		overflow-y: scroll
@@ -493,11 +502,13 @@
 		height: 100%
 		padding: 42px 50px 42px 0
 		overflow: hidden
-		background-color: red
+		box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
+		background-color: #fff
 		img
 			position: absolute
 			top: 0
 			left: 0
+			z-index: 1
 			display: block
 			width: 376px
 			height: 263px
@@ -516,8 +527,6 @@
 	.popup
 		+b4col(100%)
 		max-height: 544px
-		&_2
-			max-height: 372px
 		&__block-img
 			padding: 50px 16px 44px 72px
 			img
@@ -534,6 +543,22 @@
 +media(xs)
 	.popup
 		max-height: 420px
+		&__block-img
+			padding: 124px 16px 16px
+			height: 100%
+			img
+				width: 100%
+				height: 168px
+		&__content
+			span
+				&:first-child,
+				&:last-child
+					z-index: 0
+					padding: 0
+					font-size: 12px
+					line-height: 1.64
+				&:first-child
+					margin-bottom: 10px
 		&__list
 			flex-wrap: wrap
 		&__item

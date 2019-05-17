@@ -3,7 +3,7 @@ $(window).on('wheel', function (e) {
 	var translateGroup = $('body, .header, .main__line');
 	//Scroll
 	// var delta = e.originalEvent.wheelDelta || e.originalEvent.deltaY || e.originalEvent.detail;
-	if( $(window).width() > 767 ) {
+	if( $(window).width() > 1023 ) {
 		if( e.originalEvent.wheelDelta > 0 || e.originalEvent.deltaY < 0 ) {
 			$('.js-tgl-popup').addClass('close');
 			$('.slider__popup').removeClass('visible display');
