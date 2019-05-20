@@ -42,9 +42,9 @@ body {
 }
 
 body.translate {
-	-webkit-transform: translateY(-100%);
-	-ms-transform: translateY(-100%);
-	transform: translateY(-100%);
+	-webkit-transform: translateY(-100vh);
+	-ms-transform: translateY(-100vh);
+	transform: translateY(-100vh);
 }
 
 body.no-overflow {
@@ -597,7 +597,7 @@ button {
 
 .main {
 	position: relative;
-	height: 100%;
+	height: 100vh;
 	margin: 0;
 	padding: 0;
 }
@@ -968,7 +968,7 @@ button {
 }
 
 .slider__next div {
-	right: -52px;
+	right: -50px;
 }
 
 .slider__next div::before {
@@ -1139,7 +1139,7 @@ button {
 		height: 13px;
 	}
 
-	.slider__next div::before, .slider__prev div::before {
+	.slider__next div, .slider__prev div {
 		display: none !important;
 	}
 
