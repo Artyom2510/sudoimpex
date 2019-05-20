@@ -180,6 +180,10 @@ button
 		color: #fff
 		&::before
 			background: url("/img/icon-svg/arrow-white.svg") 50% 50% / cover no-repeat
+	&_small
+		&:hover
+			&::before
+				background: url("/img/icon-svg/arrow-ac.svg") 50% 50% / cover no-repeat
 
 +media-up(md)
 	.btn-go
@@ -188,7 +192,6 @@ button
 				left: 10px
 			span
 				left: -16px
-
 
 +media(sm)
 	.btn-go

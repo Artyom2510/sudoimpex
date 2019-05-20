@@ -1,5 +1,6 @@
 .main
 	position: relative
+	height: 100%
 	margin: 0
 	padding: 0
 	&__line
@@ -16,10 +17,10 @@
 		&_right
 			left: -8px
 		&.translate
+			transform: translateY(100vh)
 			// min-height: 100vh
-			height: 100vh
 			// background-color: rgba(234, 234, 234, .9)
-			background-color: red
+			// background-color: red
 	&__bg
 		position: relative
 		top: 0
@@ -98,7 +99,6 @@
 // 			margin-left: 23px
 
 .sliders
-	height: 100vh
 	background-color: #fff
 	&__slider
 		z-index: 2
@@ -110,7 +110,7 @@
 		transform: translateX(-4px) rotate(-90deg)
 	&__wrap
 		position: relative
-		padding-bottom: 92px
+		min-height: 100vh
 	&__bottom-line
 		position: absolute
 		z-index: 2
@@ -123,10 +123,11 @@
 
 +media(sm)
 	.sliders
-		height: 100%
 		&__btn-go
 			left: 10px
 			top: 20px
+		&__wrap
+			padding-bottom: 92px
 		&__bottom-line
 			bottom: 18px
 
@@ -138,12 +139,9 @@
 		&__slider
 			padding-top: 104px
 		&__wrap
-			// min-height: 100vh
-			// height: auto
 			// padding-bottom: 92px
 
 .slider
-	height: 100vh
 	background-color: transparent
 	&__item
 		position: relative
@@ -164,17 +162,22 @@
 		height: 264px
 		margin: 0
 		order: 1
+		&_no-popup
+			margin-left: _col(3)
 	&__middle
 		display: flex
 		justify-content: flex-end
 		align-items: flex-start
 		flex-wrap: wrap
+		&_no-popup
+			justify-content: flex-start
 	&__annotation
 		+b4col(_col(5))
 		order: 3
 		font-family: "GothamPro-Medium"
 		font-size: 14px
-		span
+		&::after
+			content: '01'
 			position: absolute
 			top: -24px
 			left: 0
@@ -185,13 +188,13 @@
 		&_2
 			+b4col(calc(#{_col(4)} - 14px))
 			margin-left: 14px
+			&::after
+				content: '02'
 		&_3
 			+b4col(_col(3))
 			order: 2
-	// &__bottom
-	// 	+b4col(100%)
-	// 	display: flex
-	// 	justify-content: space-between
+			&::after
+				content: '03'
 	&__agree
 		+b4col(_col(3))
 		font-family: "GothamPro-Black"
@@ -273,6 +276,8 @@
 			flex-direction: column
 		&__img
 			align-self: center
+			&_no-popup
+				margin: 0
 		&__agree
 			+b4col(_col(6))
 			max-width: 328px
@@ -285,6 +290,7 @@
 			&_2
 				margin-left: 0
 			&_3
+				order: 3
 		&__popup
 			bottom: 50px
 		&__next,
@@ -300,7 +306,6 @@
 
 +media(xs)
 	.slider
-		min-height: 100vh
 		height: 100%
 		&__title
 			min-height: 78px
@@ -450,6 +455,7 @@
 	transition: all .3s ease
 	&_2
 		height: auto
+	&_3
 	&.display
 		display: flex
 		align-items: flex-end
@@ -500,7 +506,6 @@
 		position: relative
 		display: block
 		width: 100%
-		height: 100%
 		padding: 42px 50px 42px 0
 		overflow: hidden
 		box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
@@ -513,16 +518,37 @@
 			display: block
 			width: 376px
 			height: 263px
+	&__block-content
+		position: relative
+		display: block
+		padding: 78px 56px 82px 75px
+		box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12)
+		background-color: #fff
+		img
+			position: absolute
+			top: 46px
+			left: 12px
+			display: block
+			width: 350px
+			height: 230px
+	&__text
+		span
+			display: block
+			padding-left: 284px
+			&:first-child
+				margin-bottom: 20px
+				font-family: "GothamPro-Bold"
+				font-size: 20px
+				line-height: 27px
 	&__content
 		padding-left: 376px
 		span
 			display: block
-		span:first-child
-			display: block
-			margin-bottom: 32px
-			font-family: "GothamPro-Bold"
-			font-size: 20px
-			line-height: 27px
+			&:first-child
+				margin-bottom: 32px
+				font-family: "GothamPro-Bold"
+				font-size: 20px
+				line-height: 27px
 
 +media(sm)
 	.popup
@@ -533,6 +559,21 @@
 			img
 				width: 295px
 				height: 263px
+		&__block-content
+			padding: 30px 16px 34px 72px
+			img
+				left: 0
+				top: 0
+				width: 300px
+				height: 200px
+		&__text
+			span
+				&:first-child
+					height: 135px
+					margin-bottom: 16px
+					padding-top: 0px
+				&:last-child
+					padding-left: 0
 		&__content
 			padding: 0
 			span:first-child
@@ -550,16 +591,24 @@
 			img
 				width: 100%
 				height: 168px
+		&__block-content
+			padding: 22px 16px 16px
+			img
+				position: relative
+				width: 255px
+				height: 180px
+		&__text,
 		&__content
 			span
 				&:first-child,
 				&:last-child
 					z-index: 0
+					height: auto
 					padding: 0
 					font-size: 12px
 					line-height: 1.64
 				&:first-child
-					margin-bottom: 10px
+					margin-bottom: 16px
 		&__list
 			flex-wrap: wrap
 		&__item
