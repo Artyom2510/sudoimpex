@@ -57,6 +57,8 @@ $(function() {
 	var sliderPrev = $('.slider__prev');
 	var sliderNext = $('.slider__next');
 	var sliderDots = $('.slider__dots');
+	var sliderDotsPrev = $('.slider__prev div');
+	var sliderDotsNext = $('.slider__next div');
 	var sliderlength= sliderItem.length;
 
 	if( slider.length ) {
@@ -80,8 +82,12 @@ $(function() {
 	}
 	if(sliderDots) {
 		slider.on('afterChange', function(e, slick, currentSlide) {
-			sliderDots.children('button').removeClass('active');
-			sliderDots.children('button[data-id="'+currentSlide+'"]').addClass('active');
+			var current = sliderDots.children('button[data-id="'+currentSlide+'"]');
+			var allDots = sliderDots.children('button');
+			allDots.removeClass('active');
+			current.addClass('active');
+			sliderDotsPrev.attr('data-text', allDots.eq(current.index() - 1).text());
+			sliderDotsNext.attr('data-text', allDots.eq(current.index() + 1).text());
 		});
 	}
 	if(sliderDots.length) {
@@ -100,8 +106,6 @@ $(function() {
 		if(sliderlength && sliderPrev.length) sliderPrev.css('display', sliderItem.first().hasClass('slick-active') ? 'none' : 'block');
 		if(sliderlength && sliderNext.length) sliderNext.css('display', sliderItem.last().hasClass('slick-active') ? 'none' : 'block');
 	}
-	
-
 	// $('.popup').switchPopup({
 	// 	btnClass: 'js-tgl-popup',
 	// 	displayClass: 'display',

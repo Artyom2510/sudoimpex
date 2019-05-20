@@ -47,6 +47,10 @@ body.translate {
 	transform: translateY(-100%);
 }
 
+body.no-overflow {
+	overflow: auto;
+}
+
 @media (max-width: 1279.98px) {
 	body.translate {
 		overflow-y: scroll;
@@ -542,7 +546,7 @@ button {
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 	width: 100%;
-	overflow-x: auto;
+	overflow-x: scroll;
 }
 
 .footer__links::-webkit-scrollbar {
@@ -931,6 +935,56 @@ button {
 	-webkit-transform: translateY(-50%) rotate(180deg);
 	-ms-transform: translateY(-50%) rotate(180deg);
 	transform: translateY(-50%) rotate(180deg);
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+.slider__next div, .slider__prev div {
+	position: absolute;
+	display: block;
+	top: 0%;
+	cursor: pointer;
+	width: 22px;
+	height: 22px;
+	-webkit-transition: color .3s ease;
+	-o-transition: color .3s ease;
+	transition: color .3s ease;
+}
+
+.slider__next div:hover, .slider__prev div:hover {
+	color: #0075ff;
+}
+
+.slider__next div::before, .slider__prev div::before {
+	content: attr(data-text);
+	display: block;
+	width: 500px;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+.slider__next div {
+	right: -52px;
+}
+
+.slider__next div::before {
+	-webkit-transform: translateX(-50%) rotate(90deg);
+	-ms-transform: translateX(-50%) rotate(90deg);
+	transform: translateX(-50%) rotate(90deg);
+}
+
+.slider__prev div {
+	left: 68px;
+}
+
+.slider__prev div::before {
+	-webkit-transform: translateX(-50%) rotate(90deg);
+	-ms-transform: translateX(-50%) rotate(90deg);
+	transform: translateX(-50%) rotate(90deg);
 }
 
 .slider__dots-footer {
@@ -1085,12 +1139,20 @@ button {
 		height: 13px;
 	}
 
+	.slider__next div::before, .slider__prev div::before {
+		display: none !important;
+	}
+
 	.slider__next {
 		right: 10px;
 	}
 
 	.slider__prev {
 		left: 10px;
+	}
+
+	.slider__dots-next, .slider__dots-prev {
+		display: none !important;
 	}
 
 	.slider__dots-footer {
@@ -1151,7 +1213,7 @@ button {
 .main-contacts {
 	min-height: 100vh;
 	height: 100%;
-	overflow-y: visible;
+	overflow-y: scroll;
 }
 
 @media (max-width: 767.98px) {

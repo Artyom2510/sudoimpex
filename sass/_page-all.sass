@@ -18,9 +18,7 @@
 			left: -8px
 		&.translate
 			transform: translateY(100vh)
-			// min-height: 100vh
 			// background-color: rgba(234, 234, 234, .9)
-			// background-color: red
 	&__bg
 		position: relative
 		top: 0
@@ -87,16 +85,6 @@
 		z-index: 1
 		bottom: 0
 		width: 100%
-
-// +media(sm)
-// 	.main-bg
-// 		&__text-center
-// 			margin-left: 20px
-
-// +media(xs)
-// 	.main-bg
-// 		&__text-center
-// 			margin-left: 23px
 
 .sliders
 	background-color: #fff
@@ -217,6 +205,36 @@
 	&__prev
 		left: 48px
 		transform: translateY(-50%) rotate(180deg)
+		transform-origin: 50% 50%
+	&__next,
+	&__prev
+		div
+			position: absolute
+			display: block
+			top: 0%
+			cursor: pointer
+			width: 22px
+			height: 22px
+			transition: color .3s ease
+			&:hover
+				color: $ac
+			&::before
+				content: attr(data-text)
+				display: block
+				width: 500px
+				text-align: center
+				white-space: nowrap
+				transform-origin: 50% 50%
+	&__next
+		div
+			right: -52px
+			&::before
+				transform: translateX(-50%) rotate(90deg)
+	&__prev
+		div
+			left: 68px
+			&::before
+				transform: translateX(-50%) rotate(90deg)
 	&__dots-footer
 		position: absolute
 		bottom: 42px
@@ -297,10 +315,16 @@
 		&__prev
 			width: 20px
 			height: 13px
+			div
+				&::before
+					display: none !important
 		&__next
 			right: 10px
 		&__prev
 			left: 10px
+		&__dots-next,
+		&__dots-prev
+			display: none !important
 		&__dots-footer
 			bottom: 20px
 
@@ -328,18 +352,11 @@
 			left: 2px
 		&__dots-footer
 			bottom: 18px
-			// button:last-child
-			// 	padding-left: 16px
-			// 	&::after
-			// 		left: calc(50% - 8px)
-				// &:hover
-				// 	&::before
-				// 		width: calc(100% - 16px)
 
 .main-contacts
 	min-height: 100vh
 	height: 100%
-	overflow-y: visible
+	overflow-y: scroll
 
 +media(xs)
 	.main-contacts
