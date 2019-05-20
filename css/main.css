@@ -403,6 +403,10 @@ button {
 	font-family: "GothamPro-Bold";
 }
 
+.col-padding-20 {
+	padding: 0 22px !important;
+}
+
 .header {
 	position: absolute;
 	z-index: 3;
@@ -609,9 +613,8 @@ button {
 	z-index: 1;
 	display: inline-block;
 	width: 2px;
-	min-height: 100vh;
-	height: 100%;
-	background-color: red;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 .main__line_right {
@@ -622,6 +625,7 @@ button {
 	-webkit-transform: translateY(100vh);
 	-ms-transform: translateY(100vh);
 	transform: translateY(100vh);
+	background-color: rgba(234, 234, 234, 0.9);
 }
 
 .main__bg {
@@ -654,11 +658,16 @@ button {
 }
 
 @media (max-width: 767.98px) {
+	.main__line_left {
+		left: 20px;
+	}
+
 	.main__bg {
 		padding-top: 166px;
 	}
 
 	.main__contacts {
+		height: 100%;
 		margin-top: 104px;
 	}
 }
@@ -741,7 +750,7 @@ button {
 	display: block;
 	width: 100%;
 	height: 2px;
-	background-color: blue;
+	background-color: rgba(234, 234, 234, 0.9);
 }
 
 @media (max-width: 1079.98px) {
@@ -1151,10 +1160,6 @@ button {
 		left: 10px;
 	}
 
-	.slider__dots-next, .slider__dots-prev {
-		display: none !important;
-	}
-
 	.slider__dots-footer {
 		bottom: 20px;
 	}
@@ -1211,15 +1216,12 @@ button {
 }
 
 .main-contacts {
-	min-height: 100vh;
 	height: 100%;
-	overflow-y: scroll;
 }
 
 @media (max-width: 767.98px) {
 	.main-contacts {
 		height: auto;
-		min-height: 100%;
 	}
 }
 
@@ -1340,7 +1342,11 @@ button {
 	}
 }
 
-@media (max-width: 1079.98px) {
+@media (max-width: 767.98px) {
+	.contacts {
+		padding-bottom: 120px;
+	}
+
 	.contacts__title {
 		margin-bottom: 16px;
 		font-size: 16px;
@@ -1368,10 +1374,6 @@ button {
 		top: 0;
 		height: 134px;
 		margin-bottom: 24px;
-	}
-
-	.contacts__bottom-desc {
-		margin-bottom: 120px;
 	}
 }
 

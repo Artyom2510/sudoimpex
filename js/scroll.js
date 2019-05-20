@@ -22,31 +22,14 @@ $(window).on('wheel', function (e) {
 			}, 300);
 		}
 	}
-	// } else {
-	// 	// var height = $(window).height() - 40;
-	// 	var height = 64;
-	// 	console.log(height);
-	// 	function updateScroll(scroll) {
-	// 		console.log(scroll);
-	// 		if( scroll > height ) {
-	// 			if( !headerGroup.hasClass('gray') ) {
-	// 				headerGroup.addClass('gray');
-	// 				$('.header').addClass('translate');
-	// 			}
-	// 		} else {
-	// 			headerGroup.removeClass('gray');
-	// 			$('.header').removeClass('translate');
-	// 		}
-	// 	}
-	// 	$(window).on('scroll', function () {
-	// 		updateScroll($(this).scrollTop());
-	// 	});
 });
 $(document).ready(function() {
 	//Click
 	var headerGroup = $('.header__contacts, .header__lang, .header__logo');
 	var translateGroup = $('body, .header, .main__line');
 	$('.main-bg-footer__btn-go').on('click', function() {
+		var heightSlidersSection = $('.sliders').outerHeight(true);
+		$('.main__line').height(heightSlidersSection);
 		translateGroup.addClass('translate');
 		setTimeout(function(){
 			headerGroup.addClass('gray');
