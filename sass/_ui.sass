@@ -16,7 +16,7 @@ body
 	&.no-overflow
 		overflow: auto
 
-+media(md)
++media(sm)
 	body.translate
 		overflow-y: scroll
 
@@ -159,41 +159,45 @@ button
 	width: 42px
 	height: 28px
 	text-decoration: none
-	&::before
-		content: ''
-		position: absolute
-		z-index: 3
-		top: 0
-		left: 0
-		display: inline-block
-		width: 100%
-		height: 100%
-		background: url("/img/icon-svg/arrow.svg") 50% 50% / cover no-repeat
-		transition: all .3s ease
+	// &::before
+	// 	content: ''
+	// 	position: absolute
+	// 	z-index: 3
+	// 	top: 0
+	// 	left: 0
+	// 	display: inline-block
+	// 	width: 100%
+	// 	height: 100%
+	// 	background: url("/img/icon-svg/arrow.svg") 50% 50% / cover no-repeat
+	// 	transition: all .3s ease
 	span
 		position: absolute
 		top: 50%
 		left: -26px
+		display: inline-block
 		transform: translateY(-2px) rotate(180deg)
 		z-index: 2
 		font-size: 12px
 		transition: all .3s ease
+	svg
+		display: inline-block
+		transition: all .3s ease
+		width: 100%
 	&_white
 		color: #fff
-		&::before
-			background: url("/img/icon-svg/arrow-white.svg") 50% 50% / cover no-repeat
-	&_small
-		&:hover
-			&::before
-				background: url("/img/icon-svg/arrow-ac.svg") 50% 50% / cover no-repeat
+		svg
+			path
+				stroke: #fff
 
 +media-up(md)
 	.btn-go
-		&:hover
-			&::before
-				left: 10px
-			span
-				left: -16px
+		&_small
+			&:hover
+				svg path
+					stroke: $ac
+				div
+					&::before
+						color: $ac
 
 +media(sm)
 	.btn-go
@@ -216,5 +220,6 @@ button
 		strong
 			font-family: "GothamPro-Bold"
 
-.col-padding-20
-	padding: 0 22px !important
++media(xs)
+	.col-padding-20
+		padding: 0 22px !important

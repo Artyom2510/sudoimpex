@@ -24,7 +24,7 @@ $(window).on('wheel', function (e) {
 	}
 });
 $(document).ready(function() {
-	//Click
+	//Click + высота линий по высоте секции
 	var headerGroup = $('.header__contacts, .header__lang, .header__logo');
 	var translateGroup = $('body, .header, .main__line');
 	$('.main-bg-footer__btn-go').on('click', function() {

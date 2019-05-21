@@ -31,8 +31,6 @@
 +media(sm)
 	.main
 		&__line
-			&_middle
-				left: 16px
 			&_right
 				left: auto
 				right: 16px
@@ -56,6 +54,15 @@
 		bottom: 28px
 		left: 0px
 		transform: translateX(-4px) rotate(90deg)
+
++media-up(sm)
+	.main-bg-footer
+		&__btn-go
+			&:hover
+				svg
+					transform: translateX(10px)
+				span
+					left: -16px
 
 +media(sm)
 	.main-bg-footer
@@ -88,6 +95,11 @@
 		bottom: 0
 		width: 100%
 
++media(xs)
+	.main-bg
+		&__desc
+			margin-left: 4px
+
 .sliders
 	background-color: #fff
 	&__slider
@@ -98,6 +110,9 @@
 		top: 28px
 		left: 0px
 		transform: translateX(-4px) rotate(-90deg)
+		&:hover
+			svg
+				transform: translateX(10px)
 	&__wrap
 		position: relative
 		min-height: 100vh
@@ -113,7 +128,7 @@
 +media(sm)
 	.sliders
 		&__btn-go
-			left: 10px
+			left: 4px
 			top: 20px
 		&__wrap
 			padding-bottom: 92px
@@ -146,16 +161,18 @@
 		object-position: 50% 50%
 	&__img
 		+b4col(_col(6))
-		height: 264px
+		height: auto
 		margin: 0
 		order: 1
+		filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.12))
 		&_no-popup
 			margin-left: _col(3)
 	&__middle
 		display: flex
 		justify-content: flex-end
-		align-items: flex-start
+		align-items: flex-end
 		flex-wrap: wrap
+		padding-bottom: 96px
 		&_no-popup
 			justify-content: flex-start
 	&__annotation
@@ -175,11 +192,13 @@
 		&_2
 			+b4col(calc(#{_col(4)} - 14px))
 			margin-left: 14px
+			margin-bottom: -96px
 			&::after
 				content: '02'
 		&_3
 			+b4col(_col(3))
 			order: 2
+			align-self: flex-start
 			&::after
 				content: '03'
 	&__agree
@@ -191,22 +210,13 @@
 	&__popup
 		position: absolute
 		z-index: 4
-		bottom: 0
+		bottom: 96px
 		left: 0
 	&__next,
 	&__prev
 		position: absolute
 		z-index: 2
 		top: 50%
-	&__next
-		right: 48px
-		transform: translateY(-50%)
-	&__prev
-		left: 48px
-		transform: translateY(-50%) rotate(180deg)
-		transform-origin: 50% 50%
-	&__next,
-	&__prev
 		div
 			position: absolute
 			display: block
@@ -215,25 +225,33 @@
 			width: 22px
 			height: 22px
 			transition: color .3s ease
-			&:hover
-				color: $ac
 			&::before
 				content: attr(data-text)
 				display: block
-				width: 500px
+				width: 236px
+				font-family: "GothamPro-Medium"
 				text-align: center
+				font-size: 12px
 				white-space: nowrap
+				color: $vertical-text
 				transform-origin: 50% 50%
 	&__next
+		right: 48px
+		transform: translateY(-50%)
 		div
-			right: -50px
+			right: -48px
 			&::before
-				transform: translateX(-50%) rotate(90deg)
+				transform: translateX(-50%) rotate(-90deg)
 	&__prev
+		left: 48px
+		transform: translateY(-50%)
+		transform-origin: 50% 50%
 		div
-			left: 68px
+			left: -28px
 			&::before
 				transform: translateX(-50%) rotate(90deg)
+		svg
+			transform: rotate(180deg)
 	&__dots-footer
 		position: absolute
 		bottom: 42px
@@ -275,12 +293,41 @@
 				height: 1px
 				background: $ac-opacity
 				transition: width .3s ease
-			&:hover
-				color: $ac
-				&::before
-					width: 100%
 			&.active
 				color: $ac
+
++media-up(md)
+	.slider
+		&__next
+			&:hover
+				svg
+					transform: translateX(10px)
+		&__prev
+			&:hover
+				svg
+					transform: rotate(180deg) translateX(10px)
+		&__dots
+			button
+				&:hover
+					color: $ac
+					&::before
+						width: 100%
+
++media(md)
+	.slider
+		&__middle
+			padding-bottom: 60px
+		&__annotation
+			&_2
+				margin-bottom: -60px
+		&__next,
+		&__prev
+			div
+				display: none !important
+		&__next
+			right: 36px
+		&__prev
+			left: 36px
 
 +media(sm)
 	.slider
@@ -291,10 +338,15 @@
 			margin-bottom: 24px
 		&__middle
 			flex-direction: column
+			align-items: flex-start
+			padding-bottom: 0
 		&__img
+			+b4col(_col(6))
 			align-self: center
+			// height: 173px
+			margin-bottom: 16px
 			&_no-popup
-				margin: 0
+				margin-left: 0
 		&__agree
 			+b4col(_col(6))
 			max-width: 328px
@@ -302,20 +354,17 @@
 		&__annotation
 			+b4col(_col(6))
 			margin-bottom: 24px
-			&:last-child
-				margin-bottom: 0
 			&_2
 				margin-left: 0
 			&_3
-				order: 3
+				order: 4
+				margin-bottom: 0
 		&__popup
 			bottom: 50px
 		&__next,
 		&__prev
 			width: 20px
 			height: 13px
-			div
-				display: none !important
 		&__next
 			right: 10px
 		&__prev
@@ -332,14 +381,12 @@
 			font-size: 16px
 			line-height: 1.64
 		&__desc,
-		&__annotation
-			+b4col(100%)
+		&__annotation,
 		&__img
-			width: 100%
-			height: auto
+			+b4col(100%)
 		&__agree
 			+b4col(100%)
-			margin-top: 0
+			margin-top: 24px
 			align-self: flex-start
 		&__next
 			right: 2px
@@ -350,10 +397,37 @@
 
 .main-contacts
 	height: 100%
+	&__line
+		position: absolute
+		z-index: 0
+		left: 16px
+		display: inline-block
+		width: 2px
+		height: 100vh
+		background-color: rgba(234, 234, 234, .9)
+		&_middle
+			left: auto
+			right: 20px
+		&_right
+			left: auto
+			right: 24px
+
++media(sm)
+	.main-contacts
+		&__line
+			&_middle
+				right: auto
+				left: 18px
+			&_right
+				right: 16px
 
 +media(xs)
 	.main-contacts
 		height: auto
+		&__line
+			&_middle
+				left: auto
+				right: 16px
 
 .contacts-info
 	position: relative
@@ -463,7 +537,6 @@
 	transition: all .3s ease
 	&_2
 		height: auto
-	&_3
 	&.display
 		display: flex
 		align-items: flex-end
@@ -620,7 +693,6 @@
 		&__list
 			flex-wrap: wrap
 		&__item
-			margin-bottom: 24px
 			width: 100%
 			padding-left: 40px
 			&:nth-child(odd)
@@ -630,3 +702,6 @@
 			span
 				margin-bottom: 12px
 				font-size: 12px
+
+.wraper
+	width: 100%
