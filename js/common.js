@@ -147,9 +147,19 @@ $(function() {
 		}
 	});
 
+	// $(window).on('click', function () {
+	// 	$('.popup').removeClass('visible');
+	// 	$('.js-tgl-popup').removeClass('open');
+	// 	setTimeout(function(){
+	// 		$('.js-tgl-popup').addClass('close');
+	// 		$('.popup').removeClass('display');
+	// 	}, 300);
+	// });
 	//Отклчюение события прокрутке на попапе
-	$('.popup').on('wheel', function(e) {
+	$('.popup').on('wheel swipe', function(e) {
+		console.log('aaa');
 		e.stopPropagation();
+		// slider.slick("slickSetOption", "swipe", false, false);
 	});
 
 	//высота линий на странице контакты

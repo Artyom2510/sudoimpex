@@ -2,6 +2,9 @@ $(function() {
 	// //Липкая позиция
 	// // var height = $(document).outerHeight(true);
 	// var dotsFooter = $('.slider__dots-footer');
+	// if ( $('.main__sliders').hasClass('translate') ) {
+	// 	dotsFooter.addClass('fixed');
+	// }
 	// var sectSlidersHeight;
 	// var sliders = $('.sliders');
 	// function isSticky() {
