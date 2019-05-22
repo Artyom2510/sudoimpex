@@ -2,25 +2,25 @@
 
 @font-face {
 	font-family: "GothamPro-Black";
-  src: url("/fonts/GothamPro-Black/GothamPro-Black.eot?#iefix") format("embedded-opentype"), url("/fonts/GothamPro-Black/GothamPro-Black.woff") format("woff"), url("/fonts/GothamPro-Black/GothamPro-Black.ttf") format("truetype");
+  src: url("fonts/GothamPro-Black/GothamPro-Black.eot?#iefix") format("embedded-opentype"), url("fonts/GothamPro-Black/GothamPro-Black.woff") format("woff"), url("fonts/GothamPro-Black/GothamPro-Black.ttf") format("truetype");
   font-weight: 900;
 }
 
 @font-face {
 	font-family: "GothamPro-Bold";
-  src: url("/fonts/GothamPro-Bold/GothamPro-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/GothamPro-Bold/GothamPro-Bold.woff") format("woff"), url("/fonts/GothamPro-Bold/GothamPro-Bold.ttf") format("truetype");
+  src: url("fonts/GothamPro-Bold/GothamPro-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/GothamPro-Bold/GothamPro-Bold.woff") format("woff"), url("fonts/GothamPro-Bold/GothamPro-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
 	font-family: "GothamPro-Medium";
-  src: url("/fonts/GothamPro-Medium/GothamPro-Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/GothamPro-Medium/GothamPro-Medium.woff") format("woff"), url("/fonts/GothamPro-Medium/GothamPro-Medium.ttf") format("truetype");
+  src: url("fonts/GothamPro-Medium/GothamPro-Medium.eot?#iefix") format("embedded-opentype"), url("fonts/GothamPro-Medium/GothamPro-Medium.woff") format("woff"), url("fonts/GothamPro-Medium/GothamPro-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
 	font-family: "GothaPro";
-  src: url("/fonts/GothaPro/GothamPro.eot?#iefix") format("embedded-opentype"), url("/fonts/GothaPro/GothamPro.woff") format("woff"), url("/fonts/GothaPro/GothamPro.ttf") format("truetype");
+  src: url("fonts/GothaPro/GothamPro.eot?#iefix") format("embedded-opentype"), url("fonts/GothaPro/GothamPro.woff") format("woff"), url("fonts/GothaPro/GothamPro.ttf") format("truetype");
   font-weight: 400;
 }
 
@@ -635,7 +635,7 @@ button {
 	padding-top: 224px;
 	width: 100%;
 	height: 100vh;
-	background: url("/img/main-bg.png") 50% 50%/cover no-repeat;
+	background: url("img/main-bg.png") 50% 50%/cover no-repeat;
 }
 
 .main__contacts {
@@ -1476,7 +1476,7 @@ button {
 }
 
 .contacts__location::after {
-	background: url("/img/icon-svg/mark.svg") 50% 50% no-repeat;
+	background: url("img/icon-svg/mark.svg") 50% 50% no-repeat;
 }
 
 .contacts__email {
@@ -1492,7 +1492,7 @@ button {
 }
 
 .contacts__email::after {
-	background: url("/img/icon-svg/message.svg") 50% 50% no-repeat;
+	background: url("img/icon-svg/message.svg") 50% 50% no-repeat;
 }
 
 .contacts__phone {
@@ -1508,7 +1508,7 @@ button {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
-	background: url("/img/icon-svg/phone.svg") 50% 50% no-repeat;
+	background: url("img/icon-svg/phone.svg") 50% 50% no-repeat;
 }
 
 .contacts__bottom-desc {
