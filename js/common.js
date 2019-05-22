@@ -59,15 +59,18 @@ $(function() {
 	var sliderDots = $('.slider__dots');
 	var sliderDotsPrev = $('.slider__prev div');
 	var sliderDotsNext = $('.slider__next div');
-	var sliderlength= sliderItem.length;
+	var groupTranslate = $('.slider__annotation, .slider__img, .slider__desc, .slider__title, .slider__agree');
 
 	if( slider.length ) {
 		slider.slick({
 			infinite: false,
 			adaptiveHeight: true,
 			arrows: false,
-			speed: 400,
+			speed: 500,
+			fade: true,
+			cssEase: 'linear'
 		});
+		$('.slick-current').find(groupTranslate).addClass('translate');
 	}
 	if( slider.length && sliderPrev.length ) {
 		sliderPrev.on('click', function() {
@@ -80,6 +83,7 @@ $(function() {
 			slider.slick('slickNext');
 		});
 	}
+
 	if(sliderDots) {
 		slider.on('afterChange', function(e, slick, currentSlide) {
 			var current = sliderDots.children('button[data-id="'+currentSlide+'"]');
@@ -88,8 +92,11 @@ $(function() {
 			current.addClass('active');
 			sliderDotsPrev.attr('data-text', allDots.eq(current.index() - 1).text());
 			sliderDotsNext.attr('data-text', allDots.eq(current.index() + 1).text());
+			groupTranslate.removeClass('translate');
+			$('.slick-current').find(groupTranslate).addClass('translate');
 		});
 	}
+
 	if(sliderDots.length) {
 		sliderDots.children('button').on('click', function() {
 			var id = parseInt($(this).data('id'));
@@ -104,8 +111,8 @@ $(function() {
 	});
 
 	function updateSliderArrows() {
-		if(sliderlength && sliderPrev.length) sliderPrev.css('display', sliderItem.first().hasClass('slick-active') ? 'none' : 'block');
-		if(sliderlength && sliderNext.length) sliderNext.css('display', sliderItem.last().hasClass('slick-active') ? 'none' : 'block');
+		if(sliderItem.length && sliderPrev.length) sliderPrev.css('display', sliderItem.first().hasClass('slick-active') ? 'none' : 'block');
+		if(sliderItem.length && sliderNext.length) sliderNext.css('display', sliderItem.last().hasClass('slick-active') ? 'none' : 'block');
 	}
 	//Высота линий
 	function updateLineheight() {

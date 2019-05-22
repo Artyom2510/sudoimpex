@@ -147,26 +147,61 @@
 	background-color: transparent
 	&__item
 		position: relative
+	&__wraper
+		overflow: hidden
+		&_1
+			+b4col(_col(5))
+			order: 3
+		&_2
+			+b4col(calc(#{_col(4)} - 14px))
+			margin-left: 14px
+			order: 3
+			margin-bottom: -96px
+		&_3
+			+b4col(_col(3))
+			order: 2
+			align-self: flex-start
+		&_img
+			+b4col(_col(6))
+			height: auto
+			margin: 0
+			order: 1
+		&_no-popup
+			margin-left: _col(3)
+		&_agree
+			+b4col(_col(3))
+			order: 4
 	&__title
 		display: block
 		margin-bottom: 24px
 		font-family: "GothamPro-Bold"
 		font-size: 28px
 		line-height: 32px
+		transform: translateX(-100%)
+		&.translate
+			transform: translateX(0)
+			transition: transform .4s ease
 	&__desc
 		+b4col(_col(6))
 		margin-bottom: 16px
 		font-size: 14px
 		object-fit: cover
 		object-position: 50% 50%
+		transform: translateX(-100%)
+		&.translate
+			transform: translateX(0)
+			transition: transform .4s ease
 	&__img
-		+b4col(_col(6))
+		display: block
+		width: 100%
 		height: auto
-		margin: 0
-		order: 1
+		transform: translateX(-100%)
 		filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.12))
-		&_no-popup
-			margin-left: _col(3)
+		&.translate
+			transform: translateX(0)
+			transition: transform .4s ease
+		// &_no-popup
+		// 	margin-left: _col(3)
 	&__middle
 		display: flex
 		justify-content: flex-end
@@ -176,35 +211,43 @@
 		&_no-popup
 			justify-content: flex-start
 	&__annotation
-		+b4col(_col(5))
-		order: 3
+		// +b4col(_col(5))
+		// order: 3
+		transform: translateX(-100%)
+		padding-top: 24px
 		font-family: "GothamPro-Medium"
-		font-size: 14px
 		&::after
 			content: '01'
 			position: absolute
-			top: -24px
+			top: 0
 			left: 0
 			font-family: "GothamPro-Medium"
 			font-size: 12px
 			line-height: 24px
 			color: rgba(44, 44, 44, .3)
+		&.translate
+			transform: translateX(0)
+			transition: transform .4s ease
 		&_2
-			+b4col(calc(#{_col(4)} - 14px))
-			margin-left: 14px
-			margin-bottom: -96px
+			// +b4col(calc(#{_col(4)} - 14px))
+			// margin-left: 14px
+			// margin-bottom: -96px
 			&::after
 				content: '02'
 		&_3
-			+b4col(_col(3))
-			order: 2
-			align-self: flex-start
+			// +b4col(_col(3))
+			// order: 2
+			// align-self: flex-start
 			&::after
 				content: '03'
 	&__agree
-		+b4col(_col(3))
+		// +b4col(_col(3))
 		font-family: "GothamPro-Black"
-		order: 4
+		// order: 4
+		transform: translateX(-100%)
+		&.translate
+			transform: translateX(0)
+			transition: transform .4s ease
 	&__popup-btn
 		margin-top: 8px
 	&__popup
@@ -317,7 +360,7 @@
 	.slider
 		&__middle
 			padding-bottom: 60px
-		&__annotation
+		&__wraper
 			&_2
 				margin-bottom: -60px
 		&__next,
@@ -340,25 +383,28 @@
 			flex-direction: column
 			align-items: flex-start
 			padding-bottom: 0
-		&__img
-			+b4col(_col(6))
-			align-self: center
-			// height: 173px
-			margin-bottom: 16px
+		&__wraper
+			&_img
+				+b4col(_col(6))
+				align-self: center
+				// height: 173px
+				margin-bottom: 16px
 			&_no-popup
 				margin-left: 0
-		&__agree
-			+b4col(_col(6))
-			max-width: 328px
-			align-self: flex-end
-		&__annotation
-			+b4col(_col(6))
-			margin-bottom: 24px
+			&_agree
+				+b4col(_col(6))
+				max-width: 328px
+				align-self: flex-end
+			&_1
+				+b4col(_col(6))
+				// margin-bottom: 24px
 			&_2
+				+b4col(_col(6))
 				margin-left: 0
-			&_3
-				order: 4
 				margin-bottom: 0
+			&_3
+				+b4col(_col(6))
+				order: 4
 		&__popup
 			bottom: 50px
 		&__next,
@@ -533,7 +579,7 @@
 	display: none
 	opacity: 0
 	+b4col(_col(9))
-	height: 100%
+	height: calc(100% - 96px)
 	transition: all .3s ease
 	&_2
 		height: auto
@@ -702,6 +748,3 @@
 			span
 				margin-bottom: 12px
 				font-size: 12px
-
-.wraper
-	width: 100%
