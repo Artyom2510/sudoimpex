@@ -14,6 +14,8 @@
 		background-color: rgba(255, 255, 255, .1)
 		&_right
 			left: -8px
+		&.translateLeft
+			transform: translateX(-100%)
 		&.translate
 			transform: translateY(100vh)
 			background-color: rgba(234, 234, 234, .9)
@@ -137,9 +139,6 @@
 
 +media(xs)
 	.sliders
-		// &__btn-go
-		// 	left: 30px
-		// 	top: 8px
 		&__slider
 			padding-top: 104px
 
@@ -177,29 +176,32 @@
 		font-family: "GothamPro-Bold"
 		font-size: 28px
 		line-height: 32px
-		transform: translateX(-100%)
+		transition: transform .4s ease
+		&.translate-left
+			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-			transition: transform .4s ease
 	&__desc
 		+b4col(_col(6))
 		margin-bottom: 16px
 		font-size: 14px
 		object-fit: cover
 		object-position: 50% 50%
-		transform: translateX(-100%)
+		transition: transform .4s ease
+		&.translate-left
+			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-			transition: transform .4s ease
 	&__img
 		display: block
 		width: 100%
 		height: auto
-		transform: translateX(-100%)
 		filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.12))
+		transition: transform .4s ease
+		&.translate-left
+			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-			transition: transform .4s ease
 		// &_no-popup
 		// 	margin-left: _col(3)
 	&__middle
@@ -213,9 +215,9 @@
 	&__annotation
 		// +b4col(_col(5))
 		// order: 3
-		transform: translateX(-100%)
 		padding-top: 24px
 		font-family: "GothamPro-Medium"
+		transition: transform .4s ease
 		&::after
 			content: '01'
 			position: absolute
@@ -225,9 +227,10 @@
 			font-size: 12px
 			line-height: 24px
 			color: rgba(44, 44, 44, .3)
+		&.translate-left
+			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-			transition: transform .4s ease
 		&_2
 			// +b4col(calc(#{_col(4)} - 14px))
 			// margin-left: 14px
@@ -243,11 +246,12 @@
 	&__agree
 		// +b4col(_col(3))
 		font-family: "GothamPro-Black"
+		transition: transform .4s ease
 		// order: 4
-		transform: translateX(-100%)
+		&.translate-left
+			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-			transition: transform .4s ease
 	&__popup-btn
 		margin-top: 8px
 	&__popup
@@ -297,9 +301,17 @@
 			transform: rotate(180deg)
 	&__dots-footer
 		position: absolute
-		bottom: 42px
-		z-index: 3
+		bottom: 0
+		z-index: 5
+		// transform: translateY(100vh)
 		width: 100%
+		height: 80px
+		transition: all .1s ease
+		background-color: #fff
+		&.fixed
+			position: fixed
+			bottom: auto
+			transform: translateY(100vh)
 	&__dots
 		display: flex
 		justify-content: space-between
@@ -394,7 +406,7 @@
 			&_agree
 				+b4col(_col(6))
 				max-width: 328px
-				align-self: flex-end
+				margin-left: calc(#{_col(6)} + 14px)
 			&_1
 				+b4col(_col(6))
 				// margin-bottom: 24px
@@ -415,8 +427,8 @@
 			right: 10px
 		&__prev
 			left: 10px
-		&__dots-footer
-			bottom: 20px
+		// &__dots-footer
+		// 	bottom: 20px
 
 +media(xs)
 	.slider
@@ -426,20 +438,21 @@
 			margin-bottom: 16px
 			font-size: 16px
 			line-height: 1.64
-		&__desc,
-		&__annotation,
-		&__img
+		&__desc
 			+b4col(100%)
-		&__agree
-			+b4col(100%)
-			margin-top: 24px
-			align-self: flex-start
+		&__wraper
+			&_img, &_1, &_2, &_3
+				+b4col(100%)
+			&_agree
+				+b4col(100%)
+				margin-top: 24px
+				margin-left: 0
 		&__next
 			right: 2px
 		&__prev
 			left: 2px
-		&__dots-footer
-			bottom: 18px
+		// &__dots-footer
+		// 	bottom: 18px
 
 .main-contacts
 	height: 100%

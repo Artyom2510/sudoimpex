@@ -70,7 +70,7 @@ $(function() {
 			fade: true,
 			cssEase: 'linear'
 		});
-		$('.slick-current').find(groupTranslate).addClass('translate');
+		// $('.slick-current').find(groupTranslate).addClass('translate');
 	}
 	if( slider.length && sliderPrev.length ) {
 		sliderPrev.on('click', function() {
@@ -92,8 +92,6 @@ $(function() {
 			current.addClass('active');
 			sliderDotsPrev.attr('data-text', allDots.eq(current.index() - 1).text());
 			sliderDotsNext.attr('data-text', allDots.eq(current.index() + 1).text());
-			groupTranslate.removeClass('translate');
-			$('.slick-current').find(groupTranslate).addClass('translate');
 		});
 	}
 
@@ -105,9 +103,16 @@ $(function() {
 	}
 
 	updateSliderArrows();
+	slider.on('beforeChange', function() {
+		groupTranslate.addClass('translate-left');
+		groupTranslate.removeClass('translate');
+	});
+
 	slider.on('afterChange', function() {
 		updateSliderArrows();
 		updateLineheight();
+		groupTranslate.removeClass('translate-left');
+		$('.slick-current').find(groupTranslate).addClass('translate');
 	});
 
 	function updateSliderArrows() {
@@ -150,6 +155,5 @@ $(function() {
 	//высота линий на странице контакты
 	if( $(window).width() < 768 ) {
 		$('.main-contacts__line').height($('.main-contacts').outerHeight(true));
-		console.log($('.main-contacts__line').height(), $('.main-contacts').outerHeight(true));
 	}
 });
