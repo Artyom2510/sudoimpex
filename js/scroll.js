@@ -28,24 +28,29 @@ $(window).on('wheel', function (e) {
 		}
 	}
 });
+//Высота линий
+function updateLineheight() {
+	if( $(window).width() < 1280 ) {
+		var heightSlidersSection = $('.sliders').outerHeight(true) - 140;
+		$('.main__line').height(heightSlidersSection);
+	}
+}
 //Click
 $(document).ready(function() {
 	var headerGroup = $('.header__logo, .header__contacts, .header__lang');
 	var translateGroup = $('.main__bg, .main__sliders, .main__line');
 	var dotsAndArrow = $('.slider__dots-footer, .slider__next, .slider__prev');
 	$('.main-bg-footer__btn-go').on('click', function() {
-		// var heightSlidersSection = $('.sliders').outerHeight(true) - 116;
-		// $('.main__line').height(heightSlidersSection);
 		$('body').addClass('no-overflow');
 		translateGroup.addClass('translate');
 		setTimeout(function(){
+			updateLineheight();
 			dotsAndArrow.addClass('fixed');
 			headerGroup.addClass('gray');
 		}, 200);
 	});
 	$('.sliders__btn-go').on('click', function() {
 		translateGroup.removeClass('translate');
-		// $('.main__line').height('100vh');
 		$('body').removeClass('no-overflow');
 		headerGroup.removeClass('gray');
 		dotsAndArrow.removeClass('fixed');

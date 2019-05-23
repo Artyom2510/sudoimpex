@@ -215,8 +215,6 @@
 			transform: translateX(-100%)
 		&.translate
 			transform: translateX(0)
-		// &_no-popup
-		// 	margin-left: _col(3)
 	&__middle
 		display: flex
 		justify-content: flex-end
@@ -414,7 +412,6 @@
 			&_img
 				+b4col(_col(6))
 				align-self: center
-				// height: 173px
 				margin-bottom: 16px
 			&_no-popup
 				margin-left: 0
@@ -424,7 +421,6 @@
 				margin-left: calc(#{_col(6)} + 14px)
 			&_1
 				+b4col(_col(6))
-				// margin-bottom: 24px
 			&_2
 				+b4col(_col(6))
 				margin-left: 0
@@ -442,8 +438,8 @@
 			right: 10px
 		&__prev
 			left: 10px
-		// &__dots-footer
-		// 	bottom: 20px
+		&__dots-footer
+			height: 60px
 
 +media(xs)
 	.slider
@@ -466,8 +462,6 @@
 			right: 2px
 		&__prev
 			left: 2px
-		// &__dots-footer
-		// 	bottom: 18px
 
 .main-contacts
 	height: 100%

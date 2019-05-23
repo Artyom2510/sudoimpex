@@ -72,9 +72,6 @@ $(function() {
 			arrows: false,
 			speed: 500,
 			fade: true,
-			draggable: true,
-			swipe: true,
-			touchMove: true,
 			cssEase: 'linear'
 		});
 	}

@@ -36,6 +36,11 @@ body {
 	overflow: hidden;
 }
 
+body::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+}
+
 body.no-overflow {
 	overflow: auto;
 }
@@ -1377,6 +1382,10 @@ button {
 
 	.slider__prev {
 		left: 10px;
+	}
+
+	.slider__dots-footer {
+		height: 60px;
 	}
 }
 
