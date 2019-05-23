@@ -51,6 +51,10 @@ $(function() {
 		imgSvg();
 	});
 
+	//Popup
+	var popup = $('.popup');
+	var popupBtn = $('.js-tgl-popup');
+
 	//Slider
 	var slider = $('.slider');
 	var sliderItem = $('.slider__item');
@@ -68,9 +72,11 @@ $(function() {
 			arrows: false,
 			speed: 500,
 			fade: true,
+			draggable: true,
+			swipe: true,
+			touchMove: true,
 			cssEase: 'linear'
 		});
-		// $('.slick-current').find(groupTranslate).addClass('translate');
 	}
 	if( slider.length && sliderPrev.length ) {
 		sliderPrev.on('click', function() {
@@ -112,6 +118,8 @@ $(function() {
 		updateSliderArrows();
 		updateLineheight();
 		groupTranslate.removeClass('translate-left');
+		popup.removeClass('visible display');
+		popupBtn.removeClass('open close');
 		$('.slick-current').find(groupTranslate).addClass('translate');
 	});
 
@@ -121,19 +129,31 @@ $(function() {
 	}
 	//Высота линий
 	function updateLineheight() {
-		var heightSlidersSection = $('.sliders').outerHeight(true);
-		$('.main__line').height(heightSlidersSection);
+		if( $(window).width() < 1280 ) {
+			var heightSlidersSection = $('.sliders').outerHeight(true) - 116;
+			$('.main__line').height(heightSlidersSection);
+		}
 	}
-	//Popup
-	$('.js-tgl-popup').on('click', function() {
+	//Закрытие popup не по кнопке
+	$(window).on('click', function(e) {
+		if( $(e.target).is(popupBtn) ) return false;
+		popup.removeClass('visible');
+		popupBtn.addClass('close');
+		setTimeout(function(){
+			popup.removeClass('display');
+			popupBtn.removeClass('open');
+		}, 300);
+	});
+	//Popup по кнопке
+	popupBtn.on('click', function() {
 		var _ = $(this);
 		var parentSlide = _.parents('.slider__item');
 		var thisPopup = parentSlide.find('.slider__popup');
 		if( !thisPopup.hasClass('display') ) {
-			$('.js-tgl-popup').addClass('close');
+			popupBtn.addClass('close');
 			_.removeClass('close');
 			_.addClass('open');
-			$('.slider__popup').removeClass('visible display');
+			popup.removeClass('visible display');
 			thisPopup.addClass('display');
 			setTimeout(function(){
 				thisPopup.addClass('visible');
@@ -147,19 +167,9 @@ $(function() {
 		}
 	});
 
-	// $(window).on('click', function () {
-	// 	$('.popup').removeClass('visible');
-	// 	$('.js-tgl-popup').removeClass('open');
-	// 	setTimeout(function(){
-	// 		$('.js-tgl-popup').addClass('close');
-	// 		$('.popup').removeClass('display');
-	// 	}, 300);
-	// });
-	//Отклчюение события прокрутке на попапе
-	$('.popup').on('wheel swipe', function(e) {
-		console.log('aaa');
+	//Отключение события прокрутке - клика на попапе
+	popup.on('wheel click', function(e) {
 		e.stopPropagation();
-		// slider.slick("slickSetOption", "swipe", false, false);
 	});
 
 	//высота линий на странице контакты
