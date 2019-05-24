@@ -27,7 +27,7 @@
 		width: 100%
 		height: 100vh
 		transition: all .3s ease
-		background: url("#{$url-img}/main-bg.png") 50% 50% / cover no-repeat
+		background: url("#{$url-img}/main-bg.png") 50% 0% / cover no-repeat
 		&.translate
 			transform: translateY(-100vh)
 	&__sliders
@@ -131,7 +131,7 @@
 	&__bottom-line
 		position: absolute
 		z-index: 2
-		bottom: 42px
+		bottom: 44px
 		display: block
 		width: 100%
 		height: 2px
@@ -226,8 +226,6 @@
 		&_no-popup
 			justify-content: flex-start
 	&__annotation
-		// +b4col(_col(5))
-		// order: 3
 		padding-top: 24px
 		font-family: "GothamPro-Medium"
 		transition: transform .4s ease
@@ -245,22 +243,14 @@
 		&.translate
 			transform: translateX(0)
 		&_2
-			// +b4col(calc(#{_col(4)} - 14px))
-			// margin-left: 14px
-			// margin-bottom: -96px
 			&::after
 				content: '02'
 		&_3
-			// +b4col(_col(3))
-			// order: 2
-			// align-self: flex-start
 			&::after
 				content: '03'
 	&__agree
-		// +b4col(_col(3))
 		font-family: "GothamPro-Black"
 		transition: transform .4s ease
-		// order: 4
 		&.translate-left
 			transform: translateX(-100%)
 		&.translate
@@ -318,15 +308,12 @@
 		position: absolute
 		bottom: 0
 		z-index: 5
-		// transform: translateY(100vh)
 		width: 100%
 		height: 80px
 		transition: all .1s ease
 		background-color: #fff
 		&.fixed
 			position: fixed
-			// bottom: auto
-			// transform: translateY(100vh)
 	&__dots
 		display: flex
 		justify-content: space-between
@@ -345,14 +332,17 @@
 			&::after
 				content: ''
 				position: absolute
+				z-index: 3
 				left: 50%
 				bottom: 0
-				display: block
+				display: none
+				opacity: 0
 				width: 0
 				height: 0
 				border-left: 4px solid transparent
 				border-right: 4px solid transparent
 				border-bottom: 8px solid $ac
+				transition: opacity .2s ease
 			&::before
 				content: ''
 				position: absolute
@@ -362,9 +352,14 @@
 				width: 0
 				height: 1px
 				background: $ac-opacity
-				transition: width .3s ease
+				transition: width .2s ease
 			&.active
 				color: $ac
+				&::after
+					display: block
+					opacity: 1
+				&::before
+					width: 100%
 
 +media-up(md)
 	.slider
