@@ -2,6 +2,7 @@
 	position: relative
 	margin: 0
 	padding: 0
+	min-height: 100vh
 	&__line
 		position: absolute
 		top: 0
@@ -9,7 +10,7 @@
 		z-index: 2
 		display: inline-block
 		width: 2px
-		height: 100vh
+		min-height: 100vh
 		background-color: rgba(255, 255, 255, .1)
 		transition: all .3s ease
 		&_right
@@ -17,9 +18,10 @@
 		&.translate
 			background-color: rgba(234, 234, 234, .9)
 	&__bg
-		position: absolute
+		position: relative
 		z-index: 1
 		top: 0
+		left: 0
 		display: block
 		padding-top: 224px
 		width: 100%
@@ -27,12 +29,12 @@
 		transition: all .3s ease
 		background: url("#{$url-img}/main-bg.png") 50% 50% / cover no-repeat
 		&.translate
-			transform: translateY(-100%)
+			transform: translateY(-100vh)
 	&__sliders
-		margin-top: 100vh
+		margin-top: 0
 		transition: all .3s ease
 		&.translate
-			margin-top: 0
+			margin-top: -100vh
 	&__contacts
 		height: calc(100vh - 150px)
 		margin-top: 150px

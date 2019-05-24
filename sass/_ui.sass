@@ -1,3 +1,7 @@
+html,
+body
+	overflow-x: hidden
+
 body
 	position: relative
 	min-width: 320px
@@ -7,15 +11,19 @@ body
 	font-size: 14px
 	line-height: 1.64
 	color: $text
-	overflow: hidden
+	overflow-x: hidden
 	&::-webkit-scrollbar
 		width: 0px
 		height: 0px
 	&.no-overflow
-		overflow: auto
+		overflow: scroll
 
 section
 	position: relative
+
+.root
+	position: relative
+	display: block
 
 /* Шрифты */
 .h1, h1, .h2, h2, .h3, h3, p

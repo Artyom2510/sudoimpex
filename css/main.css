@@ -24,6 +24,11 @@
   font-weight: 400;
 }
 
+html,
+body {
+	overflow-x: hidden;
+}
+
 body {
 	position: relative;
 	min-width: 320px;
@@ -33,7 +38,7 @@ body {
 	font-size: 14px;
 	line-height: 1.64;
 	color: #2c2c2c;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -42,11 +47,16 @@ body::-webkit-scrollbar {
 }
 
 body.no-overflow {
-	overflow: auto;
+	overflow: scroll;
 }
 
 section {
 	position: relative;
+}
+
+.root {
+	position: relative;
+	display: block;
 }
 
 /* Шрифты */
@@ -389,9 +399,8 @@ button {
 
 .header {
 	position: absolute;
-	z-index: 2;
 	top: 64px;
-	left: 0;
+	z-index: 2;
 	height: auto;
 	width: 100%;
 }
@@ -600,6 +609,7 @@ button {
 	position: relative;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
 }
 
 .main__line {
@@ -609,7 +619,7 @@ button {
 	z-index: 2;
 	display: inline-block;
 	width: 2px;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: rgba(255, 255, 255, 0.1);
 	-webkit-transition: all .3s ease;
 	-o-transition: all .3s ease;
@@ -625,9 +635,10 @@ button {
 }
 
 .main__bg {
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	top: 0;
+	left: 0;
 	display: block;
 	padding-top: 224px;
 	width: 100%;
@@ -639,20 +650,20 @@ button {
 }
 
 .main__bg.translate {
-	-webkit-transform: translateY(-100%);
-	-ms-transform: translateY(-100%);
-	transform: translateY(-100%);
+	-webkit-transform: translateY(-100vh);
+	-ms-transform: translateY(-100vh);
+	transform: translateY(-100vh);
 }
 
 .main__sliders {
-	margin-top: 100vh;
+	margin-top: 0;
 	-webkit-transition: all .3s ease;
 	-o-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
 .main__sliders.translate {
-	margin-top: 0;
+	margin-top: -100vh;
 }
 
 .main__contacts {

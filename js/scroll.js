@@ -31,8 +31,8 @@ $(window).on('wheel', function (e) {
 //Высота линий
 function updateLineheight() {
 	if( $(window).width() < 1280 ) {
-		var heightSlidersSection = $('.sliders').outerHeight(true) - 140;
-		$('.main__line').height(heightSlidersSection);
+		var heightBody = $('body').outerHeight(true) - 160;
+		$('.main__line').height(heightBody);
 	}
 }
 //Click
